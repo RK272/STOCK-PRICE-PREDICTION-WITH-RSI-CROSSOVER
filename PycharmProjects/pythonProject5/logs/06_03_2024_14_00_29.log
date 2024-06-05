@@ -1,0 +1,76 @@
+[2024-06-03 14:00:34,390] 181 apscheduler.scheduler - INFO -Scheduler started
+[2024-06-03 14:00:41,398] 21 root - INFO -starting data ingestion
+[2024-06-03 14:00:41,398] 27 root - INFO -Exporting data from casandra to feature store 
+[2024-06-03 14:00:43,206] 1703 cassandra.cluster - WARNING -Downgrading core protocol version from 66 to 65 for e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:00694036-11ec-39fb-8238-d79afd9b0e46. To avoid this, it is best practice to explicitly set Cluster(protocol_version) to the version supported by your cluster. http://datastax.github.io/python-driver/api/cassandra/cluster.html#cassandra.cluster.Cluster.protocol_version
+[2024-06-03 14:00:44,584] 1703 cassandra.cluster - WARNING -Downgrading core protocol version from 65 to 5 for e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:00694036-11ec-39fb-8238-d79afd9b0e46. To avoid this, it is best practice to explicitly set Cluster(protocol_version) to the version supported by your cluster. http://datastax.github.io/python-driver/api/cassandra/cluster.html#cassandra.cluster.Cluster.protocol_version
+[2024-06-03 14:00:46,091] 1703 cassandra.cluster - WARNING -Downgrading core protocol version from 5 to 4 for e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:00694036-11ec-39fb-8238-d79afd9b0e46. To avoid this, it is best practice to explicitly set Cluster(protocol_version) to the version supported by your cluster. http://datastax.github.io/python-driver/api/cassandra/cluster.html#cassandra.cluster.Cluster.protocol_version
+[2024-06-03 14:00:48,928] 292 cassandra.policies - INFO -Using datacenter 'eu-west-1' for DCAwareRoundRobinPolicy (via host 'e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:00694036-11ec-39fb-8238-d79afd9b0e46'); if incorrect, please specify a local_dc to the constructor, or limit contact points to local cluster nodes
+[2024-06-03 14:00:58,810] 36 root - INFO -artifact-datainjection folder created 
+[2024-06-03 14:00:58,819] 45 root - INFO -performed train test split on dataframe
+[2024-06-03 14:00:58,819] 46 root - INFO -exited split_data as train test split
+[2024-06-03 14:00:58,820] 51 root - INFO -exporting train and test file path
+[2024-06-03 14:00:58,825] 56 root - INFO -exported train and test file path
+[2024-06-03 14:00:58,825] 25 root - INFO -Data ingestion completed and artifact
+[2024-06-03 14:00:58,825] 26 root - INFO -Data ingestion completed and artifact: DataIngestionArtifact(trained_file_path='artifact\\06_03_2024_14_00_29\\data_ingestion\\ingested\\train.csv')
+[2024-06-03 14:00:58,892] 41 root - ERROR -Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\pipeline\training_pipeline.py] line number [48] error message [Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\pipeline\training_pipeline.py] line number [38] error message [Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\components\data_validation.py] line number [98] error message ["['Unnamed: 5'] not found in axis"]]]
+Traceback (most recent call last):
+  File "C:\Users\DELL\PycharmProjects\pythonProject5\src\components\data_validation.py", line 98, in initiate_data_validation
+    train_dataframe=train_dataframe.drop(columns=['Unnamed: 5'],axis=1)
+  File "C:\Users\DELL\anaconda3\envs\pythonProject5\lib\site-packages\pandas\util\_decorators.py", line 311, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\DELL\anaconda3\envs\pythonProject5\lib\site-packages\pandas\core\frame.py", line 4913, in drop
+    errors=errors,
+  File "C:\Users\DELL\anaconda3\envs\pythonProject5\lib\site-packages\pandas\core\generic.py", line 4150, in drop
+    obj = obj._drop_axis(labels, axis, level=level, errors=errors)
+  File "C:\Users\DELL\anaconda3\envs\pythonProject5\lib\site-packages\pandas\core\generic.py", line 4185, in _drop_axis
+    new_axis = axis.drop(labels, errors=errors)
+  File "C:\Users\DELL\anaconda3\envs\pythonProject5\lib\site-packages\pandas\core\indexes\base.py", line 6017, in drop
+    raise KeyError(f"{labels[mask]} not found in axis")
+KeyError: "['Unnamed: 5'] not found in axis"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\DELL\PycharmProjects\pythonProject5\src\pipeline\training_pipeline.py", line 38, in start_data_validaton
+    data_validation_artifact = data_validation.initiate_data_validation()
+  File "C:\Users\DELL\PycharmProjects\pythonProject5\src\components\data_validation.py", line 137, in initiate_data_validation
+    raise SensorException(e, sys)
+src.exception.SensorException: Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\components\data_validation.py] line number [98] error message ["['Unnamed: 5'] not found in axis"]
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\DELL\PycharmProjects\pythonProject5\src\pipeline\training_pipeline.py", line 48, in run_pipeline
+    data_validation_artifact = self.start_data_validaton(data_ingestion_artifact=data_ingestion_artifact)
+  File "C:\Users\DELL\PycharmProjects\pythonProject5\src\pipeline\training_pipeline.py", line 41, in start_data_validaton
+    raise  SensorException(e,sys)
+src.exception.SensorException: Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\pipeline\training_pipeline.py] line number [38] error message [Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\components\data_validation.py] line number [98] error message ["['Unnamed: 5'] not found in axis"]]
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "main.py", line 37, in trainRouteClient
+    train_pipeline.run_pipeline()
+  File "C:\Users\DELL\PycharmProjects\pythonProject5\src\pipeline\training_pipeline.py", line 51, in run_pipeline
+    raise SensorException(e, sys)
+src.exception.SensorException: Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\pipeline\training_pipeline.py] line number [48] error message [Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\pipeline\training_pipeline.py] line number [38] error message [Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\components\data_validation.py] line number [98] error message ["['Unnamed: 5'] not found in axis"]]]
+[2024-06-03 14:00:58,924] 1745 main - ERROR -Exception on /train [GET]
+Traceback (most recent call last):
+  File "C:\Users\DELL\anaconda3\envs\pythonProject5\lib\site-packages\flask\app.py", line 2529, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\DELL\anaconda3\envs\pythonProject5\lib\site-packages\flask\app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\DELL\anaconda3\envs\pythonProject5\lib\site-packages\flask_cors\extension.py", line 178, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\DELL\anaconda3\envs\pythonProject5\lib\site-packages\flask\app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\DELL\anaconda3\envs\pythonProject5\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "C:\Users\DELL\anaconda3\envs\pythonProject5\lib\site-packages\flask_cors\decorator.py", line 130, in wrapped_function
+    resp = make_response(f(*args, **kwargs))
+  File "C:\Users\DELL\anaconda3\envs\pythonProject5\lib\site-packages\flask\helpers.py", line 209, in make_response
+    return current_app.make_response(args)  # type: ignore
+  File "C:\Users\DELL\anaconda3\envs\pythonProject5\lib\site-packages\flask\app.py", line 2139, in make_response
+    f"The view function for {request.endpoint!r} did not"
+TypeError: The view function for 'trainRouteClient' did not return a valid response. The function either returned None or ended without a return statement.
+[2024-06-03 14:24:50,988] 212 apscheduler.scheduler - INFO -Scheduler has been shut down

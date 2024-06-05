@@ -1,0 +1,63 @@
+[2024-06-03 13:37:10,035] 181 apscheduler.scheduler - INFO -Scheduler started
+[2024-06-03 13:37:14,429] 21 root - INFO -starting data ingestion
+[2024-06-03 13:37:14,430] 25 root - INFO -Exporting data from casandra to feature store 
+[2024-06-03 13:37:16,183] 1703 cassandra.cluster - WARNING -Downgrading core protocol version from 66 to 65 for e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:678e6a1d-e5b1-3cba-b949-7bfaf823957f. To avoid this, it is best practice to explicitly set Cluster(protocol_version) to the version supported by your cluster. http://datastax.github.io/python-driver/api/cassandra/cluster.html#cassandra.cluster.Cluster.protocol_version
+[2024-06-03 13:37:17,558] 1703 cassandra.cluster - WARNING -Downgrading core protocol version from 65 to 5 for e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:678e6a1d-e5b1-3cba-b949-7bfaf823957f. To avoid this, it is best practice to explicitly set Cluster(protocol_version) to the version supported by your cluster. http://datastax.github.io/python-driver/api/cassandra/cluster.html#cassandra.cluster.Cluster.protocol_version
+[2024-06-03 13:37:19,151] 1703 cassandra.cluster - WARNING -Downgrading core protocol version from 5 to 4 for e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:678e6a1d-e5b1-3cba-b949-7bfaf823957f. To avoid this, it is best practice to explicitly set Cluster(protocol_version) to the version supported by your cluster. http://datastax.github.io/python-driver/api/cassandra/cluster.html#cassandra.cluster.Cluster.protocol_version
+[2024-06-03 13:37:22,028] 292 cassandra.policies - INFO -Using datacenter 'eu-west-1' for DCAwareRoundRobinPolicy (via host 'e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:678e6a1d-e5b1-3cba-b949-7bfaf823957f'); if incorrect, please specify a local_dc to the constructor, or limit contact points to local cluster nodes
+[2024-06-03 13:37:22,028] 3863 cassandra.cluster - WARNING -Found multiple hosts with the same endpoint (e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:678e6a1d-e5b1-3cba-b949-7bfaf823957f). Excluding peer 10.0.0.4
+[2024-06-03 13:37:22,029] 2126 cassandra.cluster - INFO -Cassandra host e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:00694036-11ec-39fb-8238-d79afd9b0e46 removed
+[2024-06-03 13:37:26,733] 34 root - INFO -artifact-datainjection folder created 
+[2024-06-03 13:37:26,741] 25 root - INFO -Data ingestion completed and artifact
+[2024-06-03 13:37:26,742] 26 root - INFO -Data ingestion completed and artifact: artifact\06_03_2024_13_37_05\data_ingestion\feature_store\stock.csv
+[2024-06-03 13:37:26,747] 41 root - ERROR -Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\pipeline\training_pipeline.py] line number [48] error message [Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\pipeline\training_pipeline.py] line number [38] error message [Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\components\data_validation.py] line number [91] error message ['str' object has no attribute 'trained_file_path']]]
+Traceback (most recent call last):
+  File "C:\Users\DELL\PycharmProjects\pythonProject5\src\components\data_validation.py", line 91, in initiate_data_validation
+    train_file_path = self.data_ingestion_artifact.trained_file_path
+AttributeError: 'str' object has no attribute 'trained_file_path'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\DELL\PycharmProjects\pythonProject5\src\pipeline\training_pipeline.py", line 38, in start_data_validaton
+    data_validation_artifact = data_validation.initiate_data_validation()
+  File "C:\Users\DELL\PycharmProjects\pythonProject5\src\components\data_validation.py", line 137, in initiate_data_validation
+    raise SensorException(e, sys)
+src.exception.SensorException: Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\components\data_validation.py] line number [91] error message ['str' object has no attribute 'trained_file_path']
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\DELL\PycharmProjects\pythonProject5\src\pipeline\training_pipeline.py", line 48, in run_pipeline
+    data_validation_artifact = self.start_data_validaton(data_ingestion_artifact=data_ingestion_artifact)
+  File "C:\Users\DELL\PycharmProjects\pythonProject5\src\pipeline\training_pipeline.py", line 41, in start_data_validaton
+    raise  SensorException(e,sys)
+src.exception.SensorException: Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\pipeline\training_pipeline.py] line number [38] error message [Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\components\data_validation.py] line number [91] error message ['str' object has no attribute 'trained_file_path']]
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "main.py", line 37, in trainRouteClient
+    train_pipeline.run_pipeline()
+  File "C:\Users\DELL\PycharmProjects\pythonProject5\src\pipeline\training_pipeline.py", line 51, in run_pipeline
+    raise SensorException(e, sys)
+src.exception.SensorException: Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\pipeline\training_pipeline.py] line number [48] error message [Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\pipeline\training_pipeline.py] line number [38] error message [Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\components\data_validation.py] line number [91] error message ['str' object has no attribute 'trained_file_path']]]
+[2024-06-03 13:37:26,750] 1745 main - ERROR -Exception on /train [GET]
+Traceback (most recent call last):
+  File "C:\Users\DELL\anaconda3\envs\pythonProject5\lib\site-packages\flask\app.py", line 2529, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\DELL\anaconda3\envs\pythonProject5\lib\site-packages\flask\app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\DELL\anaconda3\envs\pythonProject5\lib\site-packages\flask_cors\extension.py", line 178, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\DELL\anaconda3\envs\pythonProject5\lib\site-packages\flask\app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\DELL\anaconda3\envs\pythonProject5\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "C:\Users\DELL\anaconda3\envs\pythonProject5\lib\site-packages\flask_cors\decorator.py", line 130, in wrapped_function
+    resp = make_response(f(*args, **kwargs))
+  File "C:\Users\DELL\anaconda3\envs\pythonProject5\lib\site-packages\flask\helpers.py", line 209, in make_response
+    return current_app.make_response(args)  # type: ignore
+  File "C:\Users\DELL\anaconda3\envs\pythonProject5\lib\site-packages\flask\app.py", line 2139, in make_response
+    f"The view function for {request.endpoint!r} did not"
+TypeError: The view function for 'trainRouteClient' did not return a valid response. The function either returned None or ended without a return statement.

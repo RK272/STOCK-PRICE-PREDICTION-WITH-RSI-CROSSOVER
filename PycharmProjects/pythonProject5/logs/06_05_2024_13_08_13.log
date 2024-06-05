@@ -1,0 +1,174 @@
+[2024-06-05 13:08:49,318] 181 apscheduler.scheduler - INFO -Scheduler started
+[2024-06-05 13:08:54,758] 24 root - INFO -starting data ingestion
+[2024-06-05 13:08:54,758] 27 root - INFO -Exporting data from casandra to feature store 
+[2024-06-05 13:08:58,608] 1703 cassandra.cluster - WARNING -Downgrading core protocol version from 66 to 65 for e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:98a2cd7e-fa1b-3950-942e-42af495c4248. To avoid this, it is best practice to explicitly set Cluster(protocol_version) to the version supported by your cluster. http://datastax.github.io/python-driver/api/cassandra/cluster.html#cassandra.cluster.Cluster.protocol_version
+[2024-06-05 13:09:00,105] 1703 cassandra.cluster - WARNING -Downgrading core protocol version from 65 to 5 for e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:98a2cd7e-fa1b-3950-942e-42af495c4248. To avoid this, it is best practice to explicitly set Cluster(protocol_version) to the version supported by your cluster. http://datastax.github.io/python-driver/api/cassandra/cluster.html#cassandra.cluster.Cluster.protocol_version
+[2024-06-05 13:09:03,626] 1703 cassandra.cluster - WARNING -Downgrading core protocol version from 5 to 4 for e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:98a2cd7e-fa1b-3950-942e-42af495c4248. To avoid this, it is best practice to explicitly set Cluster(protocol_version) to the version supported by your cluster. http://datastax.github.io/python-driver/api/cassandra/cluster.html#cassandra.cluster.Cluster.protocol_version
+[2024-06-05 13:09:06,176] 292 cassandra.policies - INFO -Using datacenter 'eu-west-1' for DCAwareRoundRobinPolicy (via host 'e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:98a2cd7e-fa1b-3950-942e-42af495c4248'); if incorrect, please specify a local_dc to the constructor, or limit contact points to local cluster nodes
+[2024-06-05 13:09:06,177] 3863 cassandra.cluster - WARNING -Found multiple hosts with the same endpoint (e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:98a2cd7e-fa1b-3950-942e-42af495c4248). Excluding peer 10.0.0.2
+[2024-06-05 13:09:06,184] 2126 cassandra.cluster - INFO -Cassandra host e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:00694036-11ec-39fb-8238-d79afd9b0e46 removed
+[2024-06-05 13:09:08,209] 3584 cassandra.cluster - WARNING -[control connection] Error connecting to e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:98a2cd7e-fa1b-3950-942e-42af495c4248:
+Traceback (most recent call last):
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\cassandra\cluster.py", line 3577, in _reconnect_internal
+    return self._try_connect(host)
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\cassandra\cluster.py", line 3651, in _try_connect
+    self._refresh_schema(connection, preloaded_results=shared_results, schema_agreement_wait=-1)
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\cassandra\cluster.py", line 3753, in _refresh_schema
+    self._cluster.metadata.refresh(connection, self._timeout, **kwargs)
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\cassandra\metadata.py", line 140, in refresh
+    self._rebuild_all(parser)
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\cassandra\metadata.py", line 163, in _rebuild_all
+    for keyspace_meta in parser.get_all_keyspaces():
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\cassandra\metadata.py", line 2868, in get_all_keyspaces
+    for x in super(SchemaParserV4, self).get_all_keyspaces():
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\cassandra\metadata.py", line 2518, in get_all_keyspaces
+    for keyspace_meta in super(SchemaParserV3, self).get_all_keyspaces():
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\cassandra\metadata.py", line 2027, in get_all_keyspaces
+    self._query_all()
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\cassandra\metadata.py", line 2808, in _query_all
+    *queries, timeout=self.timeout, fail_on_error=False)
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\cassandra\connection.py", line 1124, in wait_for_responses
+    return waiter.deliver(timeout)
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\cassandra\connection.py", line 1636, in deliver
+    raise OperationTimedOut()
+cassandra.OperationTimedOut: errors=None, last_host=None
+[2024-06-05 13:09:10,718] 2115 cassandra.cluster - INFO -New Cassandra host <Host: e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:00694036-11ec-39fb-8238-d79afd9b0e46 eu-west-1> discovered
+[2024-06-05 13:09:10,720] 3863 cassandra.cluster - WARNING -Found multiple hosts with the same endpoint (e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:00958fd0-af98-391f-9f51-7e3fe763da5c). Excluding peer 10.0.0.7
+[2024-06-05 13:09:10,721] 2126 cassandra.cluster - INFO -Cassandra host e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:b4f6d9ed-0f1d-3f7a-82f1-a4a7ea4f84d4 removed
+[2024-06-05 13:09:12,736] 3584 cassandra.cluster - WARNING -[control connection] Error connecting to e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:00958fd0-af98-391f-9f51-7e3fe763da5c:
+Traceback (most recent call last):
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\cassandra\cluster.py", line 3577, in _reconnect_internal
+    return self._try_connect(host)
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\cassandra\cluster.py", line 3651, in _try_connect
+    self._refresh_schema(connection, preloaded_results=shared_results, schema_agreement_wait=-1)
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\cassandra\cluster.py", line 3753, in _refresh_schema
+    self._cluster.metadata.refresh(connection, self._timeout, **kwargs)
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\cassandra\metadata.py", line 140, in refresh
+    self._rebuild_all(parser)
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\cassandra\metadata.py", line 163, in _rebuild_all
+    for keyspace_meta in parser.get_all_keyspaces():
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\cassandra\metadata.py", line 2868, in get_all_keyspaces
+    for x in super(SchemaParserV4, self).get_all_keyspaces():
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\cassandra\metadata.py", line 2518, in get_all_keyspaces
+    for keyspace_meta in super(SchemaParserV3, self).get_all_keyspaces():
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\cassandra\metadata.py", line 2027, in get_all_keyspaces
+    self._query_all()
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\cassandra\metadata.py", line 2808, in _query_all
+    *queries, timeout=self.timeout, fail_on_error=False)
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\cassandra\connection.py", line 1124, in wait_for_responses
+    return waiter.deliver(timeout)
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\cassandra\connection.py", line 1636, in deliver
+    raise OperationTimedOut()
+cassandra.OperationTimedOut: errors=None, last_host=None
+[2024-06-05 13:09:15,300] 3863 cassandra.cluster - WARNING -Found multiple hosts with the same endpoint (e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:00694036-11ec-39fb-8238-d79afd9b0e46). Excluding peer 10.0.0.3
+[2024-06-05 13:09:26,062] 36 root - INFO -artifact-datainjection folder created 
+[2024-06-05 13:09:26,293] 45 root - INFO -performed train test split on dataframe
+[2024-06-05 13:09:26,294] 46 root - INFO -exited split_data as train test split
+[2024-06-05 13:09:26,343] 51 root - INFO -exporting train and test file path
+[2024-06-05 13:09:26,592] 56 root - INFO -exported train and test file path
+[2024-06-05 13:09:26,592] 28 root - INFO -Data ingestion completed and artifact
+[2024-06-05 13:09:26,592] 29 root - INFO -Data ingestion completed and artifact: DataIngestionArtifact(trained_file_path='artifact/1RELIANCE.csv')
+[2024-06-05 13:09:27,689] 25 root - INFO -Required number of columns: 5
+[2024-06-05 13:09:27,689] 26 root - INFO -Data frame has columns: 5
+[2024-06-05 13:09:27,689] 45 root - INFO -Missing numerical columns: [[]]
+[2024-06-05 13:09:27,690] 133 root - INFO -Data validation artifact: DataValidationArtifact(validation_status=True, valid_train_file_path='artifact/1RELIANCE.csv', invalid_train_file_path=None, invalid_test_file_path=None, drift_report_file_path='artifact\\06_05_2024_13_08_13\\data_validation\\drift_report\\report.yaml')
+[2024-06-05 13:09:27,709] 113 root - INFO -iniitiating data transformation
+[2024-06-05 13:09:28,218] 123 root - INFO -fitting data to preprocessor object 
+[2024-06-05 13:11:06,863] 1734 cassandra.connection - WARNING -Heartbeat failed for connection (2087499610504) to e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:9e3a5bee-3d95-3bf7-90f5-09bd2177324b
+[2024-06-05 13:11:07,530] 1734 cassandra.connection - WARNING -Heartbeat failed for connection (2087499608264) to e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:678e6a1d-e5b1-3cba-b949-7bfaf823957f
+[2024-06-05 13:11:07,721] 1734 cassandra.connection - WARNING -Heartbeat failed for connection (2087499621832) to e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:00958fd0-af98-391f-9f51-7e3fe763da5c
+[2024-06-05 13:11:13,092] 93 root - INFO -rsi,ema values generated and created new table  
+[2024-06-05 13:11:13,480] 152 root - ERROR -Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\pipeline\training_pipeline.py] line number [95] error message [Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\pipeline\training_pipeline.py] line number [52] error message [Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\components\data_transformation.py] line number [137] error message ['NoneType' object is not subscriptable]]]
+Traceback (most recent call last):
+  File "C:\Users\DELL\PycharmProjects\pythonProject5\src\components\data_transformation.py", line 137, in initiate_data_transformation
+    result_df3['NumericTimestamp'] = result_df3['DateTime'].apply(
+TypeError: 'NoneType' object is not subscriptable
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\DELL\PycharmProjects\pythonProject5\src\pipeline\training_pipeline.py", line 52, in start_data_transformation
+    data_transformation_artifact =  data_transformation.initiate_data_transformation()
+  File "C:\Users\DELL\PycharmProjects\pythonProject5\src\components\data_transformation.py", line 215, in initiate_data_transformation
+    raise SensorException(e, sys) from e
+src.exception.SensorException: Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\components\data_transformation.py] line number [137] error message ['NoneType' object is not subscriptable]
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\DELL\PycharmProjects\pythonProject5\src\pipeline\training_pipeline.py", line 95, in run_pipeline
+    data_validation_artifact=data_validation_artifact)
+  File "C:\Users\DELL\PycharmProjects\pythonProject5\src\pipeline\training_pipeline.py", line 55, in start_data_transformation
+    raise  SensorException(e,sys)
+src.exception.SensorException: Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\pipeline\training_pipeline.py] line number [52] error message [Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\components\data_transformation.py] line number [137] error message ['NoneType' object is not subscriptable]]
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "main.py", line 148, in trainRouteClient
+    train_pipeline.run_pipeline()
+  File "C:\Users\DELL\PycharmProjects\pythonProject5\src\pipeline\training_pipeline.py", line 104, in run_pipeline
+    raise SensorException(e, sys)
+src.exception.SensorException: Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\pipeline\training_pipeline.py] line number [95] error message [Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\pipeline\training_pipeline.py] line number [52] error message [Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\components\data_transformation.py] line number [137] error message ['NoneType' object is not subscriptable]]]
+[2024-06-05 13:11:13,495] 1745 main - ERROR -Exception on /train [GET]
+Traceback (most recent call last):
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\flask\app.py", line 2529, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\flask\app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\flask_cors\extension.py", line 178, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\flask\app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\flask_cors\decorator.py", line 130, in wrapped_function
+    resp = make_response(f(*args, **kwargs))
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\flask\helpers.py", line 209, in make_response
+    return current_app.make_response(args)  # type: ignore
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\flask\app.py", line 2139, in make_response
+    f"The view function for {request.endpoint!r} did not"
+TypeError: The view function for 'trainRouteClient' did not return a valid response. The function either returned None or ended without a return statement.
+[2024-06-05 13:11:16,986] 1734 cassandra.connection - WARNING -Heartbeat failed for connection (2087499620104) to e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:98a2cd7e-fa1b-3950-942e-42af495c4248
+[2024-06-05 13:11:16,987] 1734 cassandra.connection - WARNING -Heartbeat failed for connection (2087499621192) to e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:190dafab-6970-3a67-a21c-1226360de7dc
+[2024-06-05 13:11:16,987] 1734 cassandra.connection - WARNING -Heartbeat failed for connection (2087499627272) to e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:0669df0f-031f-383e-b452-67a9679bbc6a
+[2024-06-05 13:11:16,988] 1734 cassandra.connection - WARNING -Heartbeat failed for connection (2087499637448) to e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:00694036-11ec-39fb-8238-d79afd9b0e46
+[2024-06-05 13:11:16,988] 1734 cassandra.connection - WARNING -Heartbeat failed for connection (2087499320520) to e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:00694036-11ec-39fb-8238-d79afd9b0e46
+[2024-06-05 13:11:16,989] 2000 cassandra.cluster - WARNING -Host e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:9e3a5bee-3d95-3bf7-90f5-09bd2177324b has been marked down
+[2024-06-05 13:11:16,990] 2000 cassandra.cluster - WARNING -Host e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:678e6a1d-e5b1-3cba-b949-7bfaf823957f has been marked down
+[2024-06-05 13:11:16,991] 2000 cassandra.cluster - WARNING -Host e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:00958fd0-af98-391f-9f51-7e3fe763da5c has been marked down
+[2024-06-05 13:11:16,993] 2000 cassandra.cluster - WARNING -Host e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:98a2cd7e-fa1b-3950-942e-42af495c4248 has been marked down
+[2024-06-05 13:11:16,994] 2000 cassandra.cluster - WARNING -Host e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:190dafab-6970-3a67-a21c-1226360de7dc has been marked down
+[2024-06-05 13:11:16,995] 2000 cassandra.cluster - WARNING -Host e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:0669df0f-031f-383e-b452-67a9679bbc6a has been marked down
+[2024-06-05 13:11:16,997] 2000 cassandra.cluster - WARNING -Host e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:00694036-11ec-39fb-8238-d79afd9b0e46 has been marked down
+[2024-06-05 13:11:19,946] 3863 cassandra.cluster - WARNING -Found multiple hosts with the same endpoint (e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:0750e59f-441b-37bb-b0a7-e097c5d725f7). Excluding peer 10.0.0.8
+[2024-06-05 13:11:19,947] 2115 cassandra.cluster - INFO -New Cassandra host <Host: e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:b4f6d9ed-0f1d-3f7a-82f1-a4a7ea4f84d4 eu-west-1> discovered
+[2024-06-05 13:11:19,949] 2126 cassandra.cluster - INFO -Cassandra host e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:190dafab-6970-3a67-a21c-1226360de7dc removed
+[2024-06-05 13:11:19,996] 3863 cassandra.cluster - WARNING -Found multiple hosts with the same endpoint (e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:00694036-11ec-39fb-8238-d79afd9b0e46). Excluding peer 10.0.0.3
+[2024-06-05 13:11:23,372] 352 cassandra.pool - INFO -Successful reconnection to e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:9e3a5bee-3d95-3bf7-90f5-09bd2177324b, marking node up if it isn't already
+[2024-06-05 13:11:23,372] 1900 cassandra.cluster - INFO -Host e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:9e3a5bee-3d95-3bf7-90f5-09bd2177324b may be up; will prepare queries and open connection pool
+[2024-06-05 13:11:23,898] 2115 cassandra.cluster - INFO -New Cassandra host <Host: e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:190dafab-6970-3a67-a21c-1226360de7dc eu-west-1> discovered
+[2024-06-05 13:11:24,784] 352 cassandra.pool - INFO -Successful reconnection to e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:678e6a1d-e5b1-3cba-b949-7bfaf823957f, marking node up if it isn't already
+[2024-06-05 13:11:24,784] 1900 cassandra.cluster - INFO -Host e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:678e6a1d-e5b1-3cba-b949-7bfaf823957f may be up; will prepare queries and open connection pool
+[2024-06-05 13:11:27,429] 352 cassandra.pool - INFO -Successful reconnection to e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:00694036-11ec-39fb-8238-d79afd9b0e46, marking node up if it isn't already
+[2024-06-05 13:11:27,430] 1900 cassandra.cluster - INFO -Host e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:00694036-11ec-39fb-8238-d79afd9b0e46 may be up; will prepare queries and open connection pool
+[2024-06-05 13:11:27,617] 352 cassandra.pool - INFO -Successful reconnection to e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:0669df0f-031f-383e-b452-67a9679bbc6a, marking node up if it isn't already
+[2024-06-05 13:11:27,618] 1900 cassandra.cluster - INFO -Host e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:0669df0f-031f-383e-b452-67a9679bbc6a may be up; will prepare queries and open connection pool
+[2024-06-05 13:11:28,852] 352 cassandra.pool - INFO -Successful reconnection to e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:98a2cd7e-fa1b-3950-942e-42af495c4248, marking node up if it isn't already
+[2024-06-05 13:11:28,885] 1900 cassandra.cluster - INFO -Host e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:98a2cd7e-fa1b-3950-942e-42af495c4248 may be up; will prepare queries and open connection pool
+[2024-06-05 13:11:28,884] 352 cassandra.pool - INFO -Successful reconnection to e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:00958fd0-af98-391f-9f51-7e3fe763da5c, marking node up if it isn't already
+[2024-06-05 13:11:28,887] 1900 cassandra.cluster - INFO -Host e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:00958fd0-af98-391f-9f51-7e3fe763da5c may be up; will prepare queries and open connection pool
+[2024-06-05 13:11:32,126] 3863 cassandra.cluster - WARNING -Found multiple hosts with the same endpoint (e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:0750e59f-441b-37bb-b0a7-e097c5d725f7). Excluding peer 10.0.0.8
+[2024-06-05 13:11:32,126] 2126 cassandra.cluster - INFO -Cassandra host e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:98a2cd7e-fa1b-3950-942e-42af495c4248 removed
+[2024-06-05 13:11:32,525] 2115 cassandra.cluster - INFO -New Cassandra host <Host: e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:98a2cd7e-fa1b-3950-942e-42af495c4248 eu-west-1> discovered
+[2024-06-05 13:11:35,943] 1864 cassandra.cluster - INFO -Connection pools established for node e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:9e3a5bee-3d95-3bf7-90f5-09bd2177324b
+[2024-06-05 13:11:37,484] 1864 cassandra.cluster - INFO -Connection pools established for node e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:678e6a1d-e5b1-3cba-b949-7bfaf823957f
+[2024-06-05 13:11:38,844] 1864 cassandra.cluster - INFO -Connection pools established for node e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:00694036-11ec-39fb-8238-d79afd9b0e46
+[2024-06-05 13:11:38,847] 1864 cassandra.cluster - INFO -Connection pools established for node e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:0669df0f-031f-383e-b452-67a9679bbc6a
+[2024-06-05 13:11:41,776] 1864 cassandra.cluster - INFO -Connection pools established for node e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:98a2cd7e-fa1b-3950-942e-42af495c4248
+[2024-06-05 13:11:41,942] 1864 cassandra.cluster - INFO -Connection pools established for node e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:00958fd0-af98-391f-9f51-7e3fe763da5c
+[2024-06-05 13:13:07,031] 1734 cassandra.connection - WARNING -Heartbeat failed for connection (2087501333960) to e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:678e6a1d-e5b1-3cba-b949-7bfaf823957f
+[2024-06-05 13:13:07,033] 2000 cassandra.cluster - WARNING -Host e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:678e6a1d-e5b1-3cba-b949-7bfaf823957f has been marked down
+[2024-06-05 13:13:11,661] 352 cassandra.pool - INFO -Successful reconnection to e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:678e6a1d-e5b1-3cba-b949-7bfaf823957f, marking node up if it isn't already
+[2024-06-05 13:13:11,663] 1900 cassandra.cluster - INFO -Host e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:678e6a1d-e5b1-3cba-b949-7bfaf823957f may be up; will prepare queries and open connection pool
+[2024-06-05 13:13:13,806] 1864 cassandra.cluster - INFO -Connection pools established for node e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:678e6a1d-e5b1-3cba-b949-7bfaf823957f

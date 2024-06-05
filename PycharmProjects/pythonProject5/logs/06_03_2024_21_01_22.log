@@ -1,0 +1,50 @@
+[2024-06-03 21:01:29,187] 181 apscheduler.scheduler - INFO -Scheduler started
+[2024-06-03 21:02:09,620] 24 root - INFO -starting data ingestion
+[2024-06-03 21:02:09,621] 27 root - INFO -Exporting data from casandra to feature store 
+[2024-06-03 21:02:11,383] 1703 cassandra.cluster - WARNING -Downgrading core protocol version from 66 to 65 for e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:0669df0f-031f-383e-b452-67a9679bbc6a. To avoid this, it is best practice to explicitly set Cluster(protocol_version) to the version supported by your cluster. http://datastax.github.io/python-driver/api/cassandra/cluster.html#cassandra.cluster.Cluster.protocol_version
+[2024-06-03 21:02:12,717] 1703 cassandra.cluster - WARNING -Downgrading core protocol version from 65 to 5 for e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:0669df0f-031f-383e-b452-67a9679bbc6a. To avoid this, it is best practice to explicitly set Cluster(protocol_version) to the version supported by your cluster. http://datastax.github.io/python-driver/api/cassandra/cluster.html#cassandra.cluster.Cluster.protocol_version
+[2024-06-03 21:02:14,304] 1703 cassandra.cluster - WARNING -Downgrading core protocol version from 5 to 4 for e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:0669df0f-031f-383e-b452-67a9679bbc6a. To avoid this, it is best practice to explicitly set Cluster(protocol_version) to the version supported by your cluster. http://datastax.github.io/python-driver/api/cassandra/cluster.html#cassandra.cluster.Cluster.protocol_version
+[2024-06-03 21:02:17,126] 292 cassandra.policies - INFO -Using datacenter 'eu-west-1' for DCAwareRoundRobinPolicy (via host 'e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:0669df0f-031f-383e-b452-67a9679bbc6a'); if incorrect, please specify a local_dc to the constructor, or limit contact points to local cluster nodes
+[2024-06-03 21:02:17,127] 3863 cassandra.cluster - WARNING -Found multiple hosts with the same endpoint (e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:0669df0f-031f-383e-b452-67a9679bbc6a). Excluding peer 10.0.0.5
+[2024-06-03 21:02:17,128] 2126 cassandra.cluster - INFO -Cassandra host e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:00694036-11ec-39fb-8238-d79afd9b0e46 removed
+[2024-06-03 21:02:25,341] 36 root - INFO -artifact-datainjection folder created 
+[2024-06-03 21:02:25,397] 45 root - INFO -performed train test split on dataframe
+[2024-06-03 21:02:25,398] 46 root - INFO -exited split_data as train test split
+[2024-06-03 21:02:25,399] 51 root - INFO -exporting train and test file path
+[2024-06-03 21:02:25,505] 56 root - INFO -exported train and test file path
+[2024-06-03 21:02:25,505] 28 root - INFO -Data ingestion completed and artifact
+[2024-06-03 21:02:25,505] 29 root - INFO -Data ingestion completed and artifact: DataIngestionArtifact(trained_file_path='artifact/1RELIANCE.csv')
+[2024-06-03 21:02:25,708] 25 root - INFO -Required number of columns: 5
+[2024-06-03 21:02:25,708] 26 root - INFO -Data frame has columns: 5
+[2024-06-03 21:02:25,709] 45 root - INFO -Missing numerical columns: [[]]
+[2024-06-03 21:02:25,709] 133 root - INFO -Data validation artifact: DataValidationArtifact(validation_status=True, valid_train_file_path='artifact/1RELIANCE.csv', invalid_train_file_path=None, invalid_test_file_path=None, drift_report_file_path='artifact\\06_03_2024_21_01_22\\data_validation\\drift_report\\report.yaml')
+[2024-06-03 21:02:47,136] 47 root - INFO -Entered the save_object method of MainUtils class
+[2024-06-03 21:02:47,140] 51 root - INFO -Exited the save_object method of MainUtils class
+[2024-06-03 21:02:47,141] 47 root - INFO -Entered the save_object method of MainUtils class
+[2024-06-03 21:02:47,144] 51 root - INFO -Exited the save_object method of MainUtils class
+[2024-06-03 21:02:47,207] 224 root - INFO -Data transformation artifact: DataTransformationArtifact(transformed_object_file_path='artifact\\06_03_2024_21_01_22\\data_transformation\\transformed_object\\preprocessing.pkl', transformed_object2_file_path='artifact\\06_03_2024_21_01_22\\data_transformation\\transformed_object\\preprocessing1.pkl', transformed_train_file_path='artifact\\06_03_2024_21_01_22\\data_transformation\\transformed\\train.npy', transformed_test_file_path='artifact\\06_03_2024_21_01_22\\data_transformation\\transformed\\test.npy', transformed_train_file_path1='artifact\\06_03_2024_21_01_22\\data_transformation\\transformed_object\\train.csv')
+[2024-06-03 21:02:47,768] 47 root - INFO -Entered the save_object method of MainUtils class
+[2024-06-03 21:02:47,784] 51 root - INFO -Exited the save_object method of MainUtils class
+[2024-06-03 21:02:47,784] 47 root - INFO -Entered the save_object method of MainUtils class
+[2024-06-03 21:02:47,807] 51 root - INFO -Exited the save_object method of MainUtils class
+[2024-06-03 21:02:47,807] 95 root - INFO -Model trainer artifact: ModelTrainerArtifact(trained_model_file_path='artifact\\06_03_2024_21_01_22\\model_trainer\\trained_model\\model.pkl', train_metric_artifact=regressionMetricArtifact(f1_score=0.37049180327868847, precision_score=0.9186991869918699, recall_score=0.23203285420944558), test_metric_artifact=regressionMetricArtifact(f1_score=0.2531645569620253, precision_score=0.6060606060606061, recall_score=0.16))
+[2024-06-03 21:02:47,860] 75 root - INFO -Model evaluation artifact: ModelEvaluationArtifact(is_model_accepted=True, improved_accuracy=None, best_model_path=None, trained_model_path='artifact\\06_03_2024_21_01_22\\model_trainer\\trained_model\\model.pkl', train_model_metric_artifact=regressionMetricArtifact(f1_score=0.2531645569620253, precision_score=0.6060606060606061, recall_score=0.16), best_model_metric_artifact=None)
+[2024-06-03 21:02:47,895] 1745 main - ERROR -Exception on /train [GET]
+Traceback (most recent call last):
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\flask\app.py", line 2529, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\flask\app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\flask_cors\extension.py", line 178, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\flask\app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\flask_cors\decorator.py", line 130, in wrapped_function
+    resp = make_response(f(*args, **kwargs))
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\flask\helpers.py", line 209, in make_response
+    return current_app.make_response(args)  # type: ignore
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\flask\app.py", line 2139, in make_response
+    f"The view function for {request.endpoint!r} did not"
+TypeError: The view function for 'trainRouteClient' did not return a valid response. The function either returned None or ended without a return statement.

@@ -1,0 +1,126 @@
+[2024-06-04 08:46:07,450] 181 apscheduler.scheduler - INFO -Scheduler started
+[2024-06-04 08:46:14,708] 1745 main - ERROR -Exception on / [GET]
+Traceback (most recent call last):
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\flask\app.py", line 2529, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\flask\app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\flask_cors\extension.py", line 178, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\flask\app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\flask_cors\decorator.py", line 130, in wrapped_function
+    resp = make_response(f(*args, **kwargs))
+  File "main.py", line 29, in home
+    return render_template('index1.html')
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\flask\templating.py", line 146, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\jinja2\environment.py", line 1081, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\jinja2\environment.py", line 1010, in get_template
+    return self._load_template(name, globals)
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\jinja2\environment.py", line 969, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\jinja2\loaders.py", line 125, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\flask\templating.py", line 62, in get_source
+    return self._get_source_fast(environment, template)
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\flask\templating.py", line 98, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: index1.html
+[2024-06-04 08:46:58,590] 1745 main - ERROR -Exception on / [GET]
+Traceback (most recent call last):
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\flask\app.py", line 2529, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\flask\app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\flask_cors\extension.py", line 178, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\flask\app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\flask_cors\decorator.py", line 130, in wrapped_function
+    resp = make_response(f(*args, **kwargs))
+  File "main.py", line 29, in home
+    return render_template('index1.html')
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\flask\templating.py", line 146, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\jinja2\environment.py", line 1081, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\jinja2\environment.py", line 1010, in get_template
+    return self._load_template(name, globals)
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\jinja2\environment.py", line 969, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\jinja2\loaders.py", line 125, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\flask\templating.py", line 62, in get_source
+    return self._get_source_fast(environment, template)
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\flask\templating.py", line 98, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: index1.html
+[2024-06-04 08:48:31,079] 24 root - INFO -starting data ingestion
+[2024-06-04 08:48:31,079] 27 root - INFO -Exporting data from casandra to feature store 
+[2024-06-04 08:48:32,988] 1703 cassandra.cluster - WARNING -Downgrading core protocol version from 66 to 65 for e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:0750e59f-441b-37bb-b0a7-e097c5d725f7. To avoid this, it is best practice to explicitly set Cluster(protocol_version) to the version supported by your cluster. http://datastax.github.io/python-driver/api/cassandra/cluster.html#cassandra.cluster.Cluster.protocol_version
+[2024-06-04 08:48:34,325] 1703 cassandra.cluster - WARNING -Downgrading core protocol version from 65 to 5 for e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:0750e59f-441b-37bb-b0a7-e097c5d725f7. To avoid this, it is best practice to explicitly set Cluster(protocol_version) to the version supported by your cluster. http://datastax.github.io/python-driver/api/cassandra/cluster.html#cassandra.cluster.Cluster.protocol_version
+[2024-06-04 08:48:35,863] 1703 cassandra.cluster - WARNING -Downgrading core protocol version from 5 to 4 for e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:0750e59f-441b-37bb-b0a7-e097c5d725f7. To avoid this, it is best practice to explicitly set Cluster(protocol_version) to the version supported by your cluster. http://datastax.github.io/python-driver/api/cassandra/cluster.html#cassandra.cluster.Cluster.protocol_version
+[2024-06-04 08:48:38,655] 292 cassandra.policies - INFO -Using datacenter 'eu-west-1' for DCAwareRoundRobinPolicy (via host 'e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:0750e59f-441b-37bb-b0a7-e097c5d725f7'); if incorrect, please specify a local_dc to the constructor, or limit contact points to local cluster nodes
+[2024-06-04 08:48:38,658] 3863 cassandra.cluster - WARNING -Found multiple hosts with the same endpoint (e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:0750e59f-441b-37bb-b0a7-e097c5d725f7). Excluding peer 10.0.0.8
+[2024-06-04 08:48:38,659] 2126 cassandra.cluster - INFO -Cassandra host e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:00694036-11ec-39fb-8238-d79afd9b0e46 removed
+[2024-06-04 08:48:46,960] 36 root - INFO -artifact-datainjection folder created 
+[2024-06-04 08:48:47,025] 45 root - INFO -performed train test split on dataframe
+[2024-06-04 08:48:47,026] 46 root - INFO -exited split_data as train test split
+[2024-06-04 08:48:47,027] 51 root - INFO -exporting train and test file path
+[2024-06-04 08:48:47,083] 56 root - INFO -exported train and test file path
+[2024-06-04 08:48:47,083] 28 root - INFO -Data ingestion completed and artifact
+[2024-06-04 08:48:47,084] 29 root - INFO -Data ingestion completed and artifact: DataIngestionArtifact(trained_file_path='artifact/1RELIANCE.csv')
+[2024-06-04 08:48:47,362] 25 root - INFO -Required number of columns: 5
+[2024-06-04 08:48:47,362] 26 root - INFO -Data frame has columns: 5
+[2024-06-04 08:48:47,362] 45 root - INFO -Missing numerical columns: [[]]
+[2024-06-04 08:48:47,363] 133 root - INFO -Data validation artifact: DataValidationArtifact(validation_status=True, valid_train_file_path='artifact/1RELIANCE.csv', invalid_train_file_path=None, invalid_test_file_path=None, drift_report_file_path='artifact\\06_04_2024_08_46_01\\data_validation\\drift_report\\report.yaml')
+[2024-06-04 08:49:18,401] 47 root - INFO -Entered the save_object method of MainUtils class
+[2024-06-04 08:49:18,405] 51 root - INFO -Exited the save_object method of MainUtils class
+[2024-06-04 08:49:18,406] 47 root - INFO -Entered the save_object method of MainUtils class
+[2024-06-04 08:49:18,409] 51 root - INFO -Exited the save_object method of MainUtils class
+[2024-06-04 08:49:18,485] 224 root - INFO -Data transformation artifact: DataTransformationArtifact(transformed_object_file_path='artifact\\06_04_2024_08_46_01\\data_transformation\\transformed_object\\preprocessing.pkl', transformed_object2_file_path='artifact\\06_04_2024_08_46_01\\data_transformation\\transformed_object\\preprocessing1.pkl', transformed_train_file_path='artifact\\06_04_2024_08_46_01\\data_transformation\\transformed\\train.npy', transformed_test_file_path='artifact\\06_04_2024_08_46_01\\data_transformation\\transformed\\test.npy', transformed_train_file_path1='artifact\\06_04_2024_08_46_01\\data_transformation\\transformed_object\\train.csv')
+[2024-06-04 08:49:19,055] 47 root - INFO -Entered the save_object method of MainUtils class
+[2024-06-04 08:49:19,070] 51 root - INFO -Exited the save_object method of MainUtils class
+[2024-06-04 08:49:19,071] 47 root - INFO -Entered the save_object method of MainUtils class
+[2024-06-04 08:49:19,084] 51 root - INFO -Exited the save_object method of MainUtils class
+[2024-06-04 08:49:19,086] 95 root - INFO -Model trainer artifact: ModelTrainerArtifact(trained_model_file_path='artifact\\06_04_2024_08_46_01\\model_trainer\\trained_model\\model.pkl', train_metric_artifact=regressionMetricArtifact(f1_score=0.37049180327868847, precision_score=0.9186991869918699, recall_score=0.23203285420944558), test_metric_artifact=regressionMetricArtifact(f1_score=0.2531645569620253, precision_score=0.6060606060606061, recall_score=0.16))
+[2024-06-04 08:49:19,567] 113 root - INFO -Model evaluation artifact: ModelEvaluationArtifact(is_model_accepted=False, improved_accuracy=0.0, best_model_path='saved_models\\1717467081\\model.pkl', trained_model_path='artifact\\06_04_2024_08_46_01\\model_trainer\\trained_model\\model.pkl', train_model_metric_artifact=regressionMetricArtifact(f1_score=0.37049180327868847, precision_score=0.9186991869918699, recall_score=0.23203285420944558), best_model_metric_artifact=regressionMetricArtifact(f1_score=0.37049180327868847, precision_score=0.9186991869918699, recall_score=0.23203285420944558))
+[2024-06-04 08:49:19,573] 149 root - ERROR -Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\pipeline\training_pipeline.py] line number [100] error message [Trained model is not better than the best model]
+Traceback (most recent call last):
+  File "C:\Users\DELL\PycharmProjects\pythonProject5\src\pipeline\training_pipeline.py", line 100, in run_pipeline
+    raise Exception("Trained model is not better than the best model")
+Exception: Trained model is not better than the best model
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "main.py", line 145, in trainRouteClient
+    train_pipeline.run_pipeline()
+  File "C:\Users\DELL\PycharmProjects\pythonProject5\src\pipeline\training_pipeline.py", line 104, in run_pipeline
+    raise SensorException(e, sys)
+src.exception.SensorException: Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\pipeline\training_pipeline.py] line number [100] error message [Trained model is not better than the best model]
+[2024-06-04 08:49:19,576] 1745 main - ERROR -Exception on /train [GET]
+Traceback (most recent call last):
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\flask\app.py", line 2529, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\flask\app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\flask_cors\extension.py", line 178, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\flask\app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\flask_cors\decorator.py", line 130, in wrapped_function
+    resp = make_response(f(*args, **kwargs))
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\flask\helpers.py", line 209, in make_response
+    return current_app.make_response(args)  # type: ignore
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\flask\app.py", line 2139, in make_response
+    f"The view function for {request.endpoint!r} did not"
+TypeError: The view function for 'trainRouteClient' did not return a valid response. The function either returned None or ended without a return statement.

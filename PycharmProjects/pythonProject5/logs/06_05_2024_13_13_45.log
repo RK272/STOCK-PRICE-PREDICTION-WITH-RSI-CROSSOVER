@@ -1,0 +1,74 @@
+[2024-06-05 13:13:51,702] 181 apscheduler.scheduler - INFO -Scheduler started
+[2024-06-05 13:13:55,092] 24 root - INFO -starting data ingestion
+[2024-06-05 13:13:55,092] 27 root - INFO -Exporting data from casandra to feature store 
+[2024-06-05 13:14:00,260] 1703 cassandra.cluster - WARNING -Downgrading core protocol version from 66 to 65 for e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:00958fd0-af98-391f-9f51-7e3fe763da5c. To avoid this, it is best practice to explicitly set Cluster(protocol_version) to the version supported by your cluster. http://datastax.github.io/python-driver/api/cassandra/cluster.html#cassandra.cluster.Cluster.protocol_version
+[2024-06-05 13:14:02,642] 1703 cassandra.cluster - WARNING -Downgrading core protocol version from 65 to 5 for e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:00958fd0-af98-391f-9f51-7e3fe763da5c. To avoid this, it is best practice to explicitly set Cluster(protocol_version) to the version supported by your cluster. http://datastax.github.io/python-driver/api/cassandra/cluster.html#cassandra.cluster.Cluster.protocol_version
+[2024-06-05 13:14:05,057] 1703 cassandra.cluster - WARNING -Downgrading core protocol version from 5 to 4 for e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:00958fd0-af98-391f-9f51-7e3fe763da5c. To avoid this, it is best practice to explicitly set Cluster(protocol_version) to the version supported by your cluster. http://datastax.github.io/python-driver/api/cassandra/cluster.html#cassandra.cluster.Cluster.protocol_version
+[2024-06-05 13:14:08,233] 292 cassandra.policies - INFO -Using datacenter 'eu-west-1' for DCAwareRoundRobinPolicy (via host 'e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:00958fd0-af98-391f-9f51-7e3fe763da5c'); if incorrect, please specify a local_dc to the constructor, or limit contact points to local cluster nodes
+[2024-06-05 13:14:08,235] 3863 cassandra.cluster - WARNING -Found multiple hosts with the same endpoint (e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:00958fd0-af98-391f-9f51-7e3fe763da5c). Excluding peer 10.0.0.7
+[2024-06-05 13:14:08,236] 2126 cassandra.cluster - INFO -Cassandra host e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:00694036-11ec-39fb-8238-d79afd9b0e46 removed
+[2024-06-05 13:14:12,520] 36 root - INFO -artifact-datainjection folder created 
+[2024-06-05 13:14:12,582] 45 root - INFO -performed train test split on dataframe
+[2024-06-05 13:14:12,582] 46 root - INFO -exited split_data as train test split
+[2024-06-05 13:14:12,583] 51 root - INFO -exporting train and test file path
+[2024-06-05 13:14:12,641] 56 root - INFO -exported train and test file path
+[2024-06-05 13:14:12,641] 28 root - INFO -Data ingestion completed and artifact
+[2024-06-05 13:14:12,643] 29 root - INFO -Data ingestion completed and artifact: DataIngestionArtifact(trained_file_path='artifact/1RELIANCE.csv')
+[2024-06-05 13:14:12,872] 25 root - INFO -Required number of columns: 5
+[2024-06-05 13:14:12,872] 26 root - INFO -Data frame has columns: 5
+[2024-06-05 13:14:12,872] 45 root - INFO -Missing numerical columns: [[]]
+[2024-06-05 13:14:12,873] 133 root - INFO -Data validation artifact: DataValidationArtifact(validation_status=True, valid_train_file_path='artifact/1RELIANCE.csv', invalid_train_file_path=None, invalid_test_file_path=None, drift_report_file_path='artifact\\06_05_2024_13_13_45\\data_validation\\drift_report\\report.yaml')
+[2024-06-05 13:14:12,883] 113 root - INFO -iniitiating data transformation
+[2024-06-05 13:14:13,035] 123 root - INFO -fitting data to preprocessor object 
+[2024-06-05 13:14:32,132] 93 root - INFO -rsi,ema values generated and created new table  
+[2024-06-05 13:14:32,262] 152 root - ERROR -Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\pipeline\training_pipeline.py] line number [95] error message [Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\pipeline\training_pipeline.py] line number [52] error message [Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\components\data_transformation.py] line number [138] error message ['NoneType' object is not subscriptable]]]
+Traceback (most recent call last):
+  File "C:\Users\DELL\PycharmProjects\pythonProject5\src\components\data_transformation.py", line 138, in initiate_data_transformation
+    result_df3['NumericTimestamp'] = result_df3['DateTime'].apply(
+TypeError: 'NoneType' object is not subscriptable
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\DELL\PycharmProjects\pythonProject5\src\pipeline\training_pipeline.py", line 52, in start_data_transformation
+    data_transformation_artifact =  data_transformation.initiate_data_transformation()
+  File "C:\Users\DELL\PycharmProjects\pythonProject5\src\components\data_transformation.py", line 216, in initiate_data_transformation
+    raise SensorException(e, sys) from e
+src.exception.SensorException: Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\components\data_transformation.py] line number [138] error message ['NoneType' object is not subscriptable]
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\DELL\PycharmProjects\pythonProject5\src\pipeline\training_pipeline.py", line 95, in run_pipeline
+    data_validation_artifact=data_validation_artifact)
+  File "C:\Users\DELL\PycharmProjects\pythonProject5\src\pipeline\training_pipeline.py", line 55, in start_data_transformation
+    raise  SensorException(e,sys)
+src.exception.SensorException: Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\pipeline\training_pipeline.py] line number [52] error message [Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\components\data_transformation.py] line number [138] error message ['NoneType' object is not subscriptable]]
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "main.py", line 148, in trainRouteClient
+    train_pipeline.run_pipeline()
+  File "C:\Users\DELL\PycharmProjects\pythonProject5\src\pipeline\training_pipeline.py", line 104, in run_pipeline
+    raise SensorException(e, sys)
+src.exception.SensorException: Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\pipeline\training_pipeline.py] line number [95] error message [Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\pipeline\training_pipeline.py] line number [52] error message [Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\components\data_transformation.py] line number [138] error message ['NoneType' object is not subscriptable]]]
+[2024-06-05 13:14:32,269] 1745 main - ERROR -Exception on /train [GET]
+Traceback (most recent call last):
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\flask\app.py", line 2529, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\flask\app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\flask_cors\extension.py", line 178, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\flask\app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\flask_cors\decorator.py", line 130, in wrapped_function
+    resp = make_response(f(*args, **kwargs))
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\flask\helpers.py", line 209, in make_response
+    return current_app.make_response(args)  # type: ignore
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\flask\app.py", line 2139, in make_response
+    f"The view function for {request.endpoint!r} did not"
+TypeError: The view function for 'trainRouteClient' did not return a valid response. The function either returned None or ended without a return statement.

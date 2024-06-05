@@ -1,0 +1,68 @@
+[2024-06-03 20:34:04,204] 181 apscheduler.scheduler - INFO -Scheduler started
+[2024-06-03 20:34:17,974] 22 root - INFO -starting data ingestion
+[2024-06-03 20:34:17,974] 27 root - INFO -Exporting data from casandra to feature store 
+[2024-06-03 20:34:20,038] 1703 cassandra.cluster - WARNING -Downgrading core protocol version from 66 to 65 for e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:00694036-11ec-39fb-8238-d79afd9b0e46. To avoid this, it is best practice to explicitly set Cluster(protocol_version) to the version supported by your cluster. http://datastax.github.io/python-driver/api/cassandra/cluster.html#cassandra.cluster.Cluster.protocol_version
+[2024-06-03 20:34:21,402] 1703 cassandra.cluster - WARNING -Downgrading core protocol version from 65 to 5 for e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:00694036-11ec-39fb-8238-d79afd9b0e46. To avoid this, it is best practice to explicitly set Cluster(protocol_version) to the version supported by your cluster. http://datastax.github.io/python-driver/api/cassandra/cluster.html#cassandra.cluster.Cluster.protocol_version
+[2024-06-03 20:34:22,975] 1703 cassandra.cluster - WARNING -Downgrading core protocol version from 5 to 4 for e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:00694036-11ec-39fb-8238-d79afd9b0e46. To avoid this, it is best practice to explicitly set Cluster(protocol_version) to the version supported by your cluster. http://datastax.github.io/python-driver/api/cassandra/cluster.html#cassandra.cluster.Cluster.protocol_version
+[2024-06-03 20:34:25,791] 292 cassandra.policies - INFO -Using datacenter 'eu-west-1' for DCAwareRoundRobinPolicy (via host 'e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:00694036-11ec-39fb-8238-d79afd9b0e46'); if incorrect, please specify a local_dc to the constructor, or limit contact points to local cluster nodes
+[2024-06-03 20:34:36,000] 36 root - INFO -artifact-datainjection folder created 
+[2024-06-03 20:34:36,064] 45 root - INFO -performed train test split on dataframe
+[2024-06-03 20:34:36,064] 46 root - INFO -exited split_data as train test split
+[2024-06-03 20:34:36,065] 51 root - INFO -exporting train and test file path
+[2024-06-03 20:34:36,120] 56 root - INFO -exported train and test file path
+[2024-06-03 20:34:36,121] 26 root - INFO -Data ingestion completed and artifact
+[2024-06-03 20:34:36,121] 27 root - INFO -Data ingestion completed and artifact: DataIngestionArtifact(trained_file_path='artifact/1RELIANCE.csv')
+[2024-06-03 20:34:36,329] 25 root - INFO -Required number of columns: 5
+[2024-06-03 20:34:36,329] 26 root - INFO -Data frame has columns: 5
+[2024-06-03 20:34:36,329] 45 root - INFO -Missing numerical columns: [[]]
+[2024-06-03 20:34:36,329] 133 root - INFO -Data validation artifact: DataValidationArtifact(validation_status=True, valid_train_file_path='artifact/1RELIANCE.csv', invalid_train_file_path=None, invalid_test_file_path=None, drift_report_file_path='artifact\\06_03_2024_20_33_44\\data_validation\\drift_report\\report.yaml')
+[2024-06-03 20:34:59,697] 47 root - INFO -Entered the save_object method of MainUtils class
+[2024-06-03 20:34:59,702] 51 root - INFO -Exited the save_object method of MainUtils class
+[2024-06-03 20:34:59,702] 47 root - INFO -Entered the save_object method of MainUtils class
+[2024-06-03 20:34:59,706] 51 root - INFO -Exited the save_object method of MainUtils class
+[2024-06-03 20:34:59,761] 224 root - INFO -Data transformation artifact: DataTransformationArtifact(transformed_object_file_path='artifact\\06_03_2024_20_33_44\\data_transformation\\transformed_object\\preprocessing.pkl', transformed_object2_file_path='artifact\\06_03_2024_20_33_44\\data_transformation\\transformed_object\\preprocessing1.pkl', transformed_train_file_path='artifact\\06_03_2024_20_33_44\\data_transformation\\transformed\\train.npy', transformed_test_file_path='artifact\\06_03_2024_20_33_44\\data_transformation\\transformed\\test.npy', transformed_train_file_path1='artifact\\06_03_2024_20_33_44\\data_transformation\\transformed_object\\train.csv')
+[2024-06-03 20:34:59,764] 41 root - ERROR -Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\pipeline\training_pipeline.py] line number [73] error message [Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\pipeline\training_pipeline.py] line number [57] error message [module 'src.constant.training_pipeline' has no attribute 'MODEL_FILE_NAME1']]
+Traceback (most recent call last):
+  File "C:\Users\DELL\PycharmProjects\pythonProject5\src\pipeline\training_pipeline.py", line 57, in start_model_trainer
+    model_trainer_config = ModelTrainerConfig(training_pipeline_config=self.training_pipeline_config)
+  File "C:\Users\DELL\PycharmProjects\pythonProject5\src\entity\config_entity.py", line 82, in __init__
+    training_pipeline.MODEL_FILE_NAME1)
+AttributeError: module 'src.constant.training_pipeline' has no attribute 'MODEL_FILE_NAME1'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\DELL\PycharmProjects\pythonProject5\src\pipeline\training_pipeline.py", line 73, in run_pipeline
+    model_trainer_artifact = self.start_model_trainer(data_transformation_artifact)
+  File "C:\Users\DELL\PycharmProjects\pythonProject5\src\pipeline\training_pipeline.py", line 62, in start_model_trainer
+    raise  SensorException(e,sys)
+src.exception.SensorException: Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\pipeline\training_pipeline.py] line number [57] error message [module 'src.constant.training_pipeline' has no attribute 'MODEL_FILE_NAME1']
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "main.py", line 37, in trainRouteClient
+    train_pipeline.run_pipeline()
+  File "C:\Users\DELL\PycharmProjects\pythonProject5\src\pipeline\training_pipeline.py", line 76, in run_pipeline
+    raise SensorException(e, sys)
+src.exception.SensorException: Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\pipeline\training_pipeline.py] line number [73] error message [Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\pipeline\training_pipeline.py] line number [57] error message [module 'src.constant.training_pipeline' has no attribute 'MODEL_FILE_NAME1']]
+[2024-06-03 20:34:59,770] 1745 main - ERROR -Exception on /train [GET]
+Traceback (most recent call last):
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\flask\app.py", line 2529, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\flask\app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\flask_cors\extension.py", line 178, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\flask\app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\flask_cors\decorator.py", line 130, in wrapped_function
+    resp = make_response(f(*args, **kwargs))
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\flask\helpers.py", line 209, in make_response
+    return current_app.make_response(args)  # type: ignore
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\flask\app.py", line 2139, in make_response
+    f"The view function for {request.endpoint!r} did not"
+TypeError: The view function for 'trainRouteClient' did not return a valid response. The function either returned None or ended without a return statement.
+[2024-06-03 20:48:39,672] 212 apscheduler.scheduler - INFO -Scheduler has been shut down

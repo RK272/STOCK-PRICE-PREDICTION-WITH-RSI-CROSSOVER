@@ -1,0 +1,243 @@
+[2024-06-03 20:30:01,441] 181 apscheduler.scheduler - INFO -Scheduler started
+[2024-06-03 20:32:01,160] 22 root - INFO -starting data ingestion
+[2024-06-03 20:32:01,160] 27 root - INFO -Exporting data from casandra to feature store 
+[2024-06-03 20:32:11,545] 3584 cassandra.cluster - WARNING -[control connection] Error connecting to e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:0669df0f-031f-383e-b452-67a9679bbc6a:
+Traceback (most recent call last):
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\cassandra\cluster.py", line 3577, in _reconnect_internal
+    return self._try_connect(host)
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\cassandra\cluster.py", line 3599, in _try_connect
+    connection = self._cluster.connection_factory(host.endpoint, is_control_connection=True)
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\cassandra\cluster.py", line 1670, in connection_factory
+    return self.connection_class.factory(endpoint, self.connect_timeout, *args, **kwargs)
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\cassandra\connection.py", line 855, in factory
+    raise OperationTimedOut("Timed out creating connection (%s seconds)" % timeout)
+cassandra.OperationTimedOut: errors=Timed out creating connection (5 seconds), last_host=None
+[2024-06-03 20:32:15,688] 1703 cassandra.cluster - WARNING -Downgrading core protocol version from 66 to 65 for e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:00694036-11ec-39fb-8238-d79afd9b0e46. To avoid this, it is best practice to explicitly set Cluster(protocol_version) to the version supported by your cluster. http://datastax.github.io/python-driver/api/cassandra/cluster.html#cassandra.cluster.Cluster.protocol_version
+[2024-06-03 20:32:20,700] 3584 cassandra.cluster - WARNING -[control connection] Error connecting to e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:00694036-11ec-39fb-8238-d79afd9b0e46:
+Traceback (most recent call last):
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\cassandra\cluster.py", line 3577, in _reconnect_internal
+    return self._try_connect(host)
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\cassandra\cluster.py", line 3599, in _try_connect
+    connection = self._cluster.connection_factory(host.endpoint, is_control_connection=True)
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\cassandra\cluster.py", line 1670, in connection_factory
+    return self.connection_class.factory(endpoint, self.connect_timeout, *args, **kwargs)
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\cassandra\connection.py", line 855, in factory
+    raise OperationTimedOut("Timed out creating connection (%s seconds)" % timeout)
+cassandra.OperationTimedOut: errors=Timed out creating connection (5 seconds), last_host=None
+[2024-06-03 20:32:22,365] 1703 cassandra.cluster - WARNING -Downgrading core protocol version from 65 to 5 for e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:b4f6d9ed-0f1d-3f7a-82f1-a4a7ea4f84d4. To avoid this, it is best practice to explicitly set Cluster(protocol_version) to the version supported by your cluster. http://datastax.github.io/python-driver/api/cassandra/cluster.html#cassandra.cluster.Cluster.protocol_version
+[2024-06-03 20:32:23,936] 1703 cassandra.cluster - WARNING -Downgrading core protocol version from 5 to 4 for e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:b4f6d9ed-0f1d-3f7a-82f1-a4a7ea4f84d4. To avoid this, it is best practice to explicitly set Cluster(protocol_version) to the version supported by your cluster. http://datastax.github.io/python-driver/api/cassandra/cluster.html#cassandra.cluster.Cluster.protocol_version
+[2024-06-03 20:32:29,320] 292 cassandra.policies - INFO -Using datacenter 'eu-west-1' for DCAwareRoundRobinPolicy (via host 'e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:b4f6d9ed-0f1d-3f7a-82f1-a4a7ea4f84d4'); if incorrect, please specify a local_dc to the constructor, or limit contact points to local cluster nodes
+[2024-06-03 20:32:29,322] 3863 cassandra.cluster - WARNING -Found multiple hosts with the same endpoint (e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:b4f6d9ed-0f1d-3f7a-82f1-a4a7ea4f84d4). Excluding peer 10.0.0.9
+[2024-06-03 20:32:29,322] 2126 cassandra.cluster - INFO -Cassandra host e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:98a2cd7e-fa1b-3950-942e-42af495c4248 removed
+[2024-06-03 20:32:31,338] 3584 cassandra.cluster - WARNING -[control connection] Error connecting to e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:b4f6d9ed-0f1d-3f7a-82f1-a4a7ea4f84d4:
+Traceback (most recent call last):
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\cassandra\cluster.py", line 3577, in _reconnect_internal
+    return self._try_connect(host)
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\cassandra\cluster.py", line 3651, in _try_connect
+    self._refresh_schema(connection, preloaded_results=shared_results, schema_agreement_wait=-1)
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\cassandra\cluster.py", line 3753, in _refresh_schema
+    self._cluster.metadata.refresh(connection, self._timeout, **kwargs)
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\cassandra\metadata.py", line 140, in refresh
+    self._rebuild_all(parser)
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\cassandra\metadata.py", line 163, in _rebuild_all
+    for keyspace_meta in parser.get_all_keyspaces():
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\cassandra\metadata.py", line 2868, in get_all_keyspaces
+    for x in super(SchemaParserV4, self).get_all_keyspaces():
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\cassandra\metadata.py", line 2518, in get_all_keyspaces
+    for keyspace_meta in super(SchemaParserV3, self).get_all_keyspaces():
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\cassandra\metadata.py", line 2027, in get_all_keyspaces
+    self._query_all()
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\cassandra\metadata.py", line 2808, in _query_all
+    *queries, timeout=self.timeout, fail_on_error=False)
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\cassandra\connection.py", line 1124, in wait_for_responses
+    return waiter.deliver(timeout)
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\cassandra\connection.py", line 1636, in deliver
+    raise OperationTimedOut()
+cassandra.OperationTimedOut: errors=None, last_host=None
+[2024-06-03 20:32:35,934] 2115 cassandra.cluster - INFO -New Cassandra host <Host: e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:98a2cd7e-fa1b-3950-942e-42af495c4248 eu-west-1> discovered
+[2024-06-03 20:32:35,934] 3863 cassandra.cluster - WARNING -Found multiple hosts with the same endpoint (e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:00958fd0-af98-391f-9f51-7e3fe763da5c). Excluding peer 10.0.0.7
+[2024-06-03 20:32:35,935] 2126 cassandra.cluster - INFO -Cassandra host e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:b4f6d9ed-0f1d-3f7a-82f1-a4a7ea4f84d4 removed
+[2024-06-03 20:32:37,945] 3584 cassandra.cluster - WARNING -[control connection] Error connecting to e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:00958fd0-af98-391f-9f51-7e3fe763da5c:
+Traceback (most recent call last):
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\cassandra\cluster.py", line 3577, in _reconnect_internal
+    return self._try_connect(host)
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\cassandra\cluster.py", line 3651, in _try_connect
+    self._refresh_schema(connection, preloaded_results=shared_results, schema_agreement_wait=-1)
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\cassandra\cluster.py", line 3753, in _refresh_schema
+    self._cluster.metadata.refresh(connection, self._timeout, **kwargs)
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\cassandra\metadata.py", line 140, in refresh
+    self._rebuild_all(parser)
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\cassandra\metadata.py", line 163, in _rebuild_all
+    for keyspace_meta in parser.get_all_keyspaces():
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\cassandra\metadata.py", line 2868, in get_all_keyspaces
+    for x in super(SchemaParserV4, self).get_all_keyspaces():
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\cassandra\metadata.py", line 2518, in get_all_keyspaces
+    for keyspace_meta in super(SchemaParserV3, self).get_all_keyspaces():
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\cassandra\metadata.py", line 2027, in get_all_keyspaces
+    self._query_all()
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\cassandra\metadata.py", line 2808, in _query_all
+    *queries, timeout=self.timeout, fail_on_error=False)
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\cassandra\connection.py", line 1124, in wait_for_responses
+    return waiter.deliver(timeout)
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\cassandra\connection.py", line 1636, in deliver
+    raise OperationTimedOut()
+cassandra.OperationTimedOut: errors=None, last_host=None
+[2024-06-03 20:32:43,053] 3584 cassandra.cluster - WARNING -[control connection] Error connecting to e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:0750e59f-441b-37bb-b0a7-e097c5d725f7:
+Traceback (most recent call last):
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\cassandra\cluster.py", line 3577, in _reconnect_internal
+    return self._try_connect(host)
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\cassandra\cluster.py", line 3599, in _try_connect
+    connection = self._cluster.connection_factory(host.endpoint, is_control_connection=True)
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\cassandra\cluster.py", line 1670, in connection_factory
+    return self.connection_class.factory(endpoint, self.connect_timeout, *args, **kwargs)
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\cassandra\connection.py", line 855, in factory
+    raise OperationTimedOut("Timed out creating connection (%s seconds)" % timeout)
+cassandra.OperationTimedOut: errors=Timed out creating connection (5 seconds), last_host=None
+[2024-06-03 20:32:48,058] 3584 cassandra.cluster - WARNING -[control connection] Error connecting to e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:190dafab-6970-3a67-a21c-1226360de7dc:
+Traceback (most recent call last):
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\cassandra\cluster.py", line 3577, in _reconnect_internal
+    return self._try_connect(host)
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\cassandra\cluster.py", line 3599, in _try_connect
+    connection = self._cluster.connection_factory(host.endpoint, is_control_connection=True)
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\cassandra\cluster.py", line 1670, in connection_factory
+    return self.connection_class.factory(endpoint, self.connect_timeout, *args, **kwargs)
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\cassandra\connection.py", line 855, in factory
+    raise OperationTimedOut("Timed out creating connection (%s seconds)" % timeout)
+cassandra.OperationTimedOut: errors=Timed out creating connection (5 seconds), last_host=None
+[2024-06-03 20:32:53,061] 3584 cassandra.cluster - WARNING -[control connection] Error connecting to e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:9e3a5bee-3d95-3bf7-90f5-09bd2177324b:
+Traceback (most recent call last):
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\cassandra\cluster.py", line 3577, in _reconnect_internal
+    return self._try_connect(host)
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\cassandra\cluster.py", line 3599, in _try_connect
+    connection = self._cluster.connection_factory(host.endpoint, is_control_connection=True)
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\cassandra\cluster.py", line 1670, in connection_factory
+    return self.connection_class.factory(endpoint, self.connect_timeout, *args, **kwargs)
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\cassandra\connection.py", line 855, in factory
+    raise OperationTimedOut("Timed out creating connection (%s seconds)" % timeout)
+cassandra.OperationTimedOut: errors=Timed out creating connection (5 seconds), last_host=None
+[2024-06-03 20:32:58,077] 3584 cassandra.cluster - WARNING -[control connection] Error connecting to e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:98a2cd7e-fa1b-3950-942e-42af495c4248:
+Traceback (most recent call last):
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\cassandra\cluster.py", line 3577, in _reconnect_internal
+    return self._try_connect(host)
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\cassandra\cluster.py", line 3599, in _try_connect
+    connection = self._cluster.connection_factory(host.endpoint, is_control_connection=True)
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\cassandra\cluster.py", line 1670, in connection_factory
+    return self.connection_class.factory(endpoint, self.connect_timeout, *args, **kwargs)
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\cassandra\connection.py", line 855, in factory
+    raise OperationTimedOut("Timed out creating connection (%s seconds)" % timeout)
+cassandra.OperationTimedOut: errors=Timed out creating connection (5 seconds), last_host=None
+[2024-06-03 20:33:01,025] 3863 cassandra.cluster - WARNING -Found multiple hosts with the same endpoint (e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:678e6a1d-e5b1-3cba-b949-7bfaf823957f). Excluding peer 10.0.0.4
+[2024-06-03 20:33:03,033] 3584 cassandra.cluster - WARNING -[control connection] Error connecting to e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:678e6a1d-e5b1-3cba-b949-7bfaf823957f:
+Traceback (most recent call last):
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\cassandra\cluster.py", line 3577, in _reconnect_internal
+    return self._try_connect(host)
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\cassandra\cluster.py", line 3651, in _try_connect
+    self._refresh_schema(connection, preloaded_results=shared_results, schema_agreement_wait=-1)
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\cassandra\cluster.py", line 3753, in _refresh_schema
+    self._cluster.metadata.refresh(connection, self._timeout, **kwargs)
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\cassandra\metadata.py", line 140, in refresh
+    self._rebuild_all(parser)
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\cassandra\metadata.py", line 163, in _rebuild_all
+    for keyspace_meta in parser.get_all_keyspaces():
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\cassandra\metadata.py", line 2868, in get_all_keyspaces
+    for x in super(SchemaParserV4, self).get_all_keyspaces():
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\cassandra\metadata.py", line 2518, in get_all_keyspaces
+    for keyspace_meta in super(SchemaParserV3, self).get_all_keyspaces():
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\cassandra\metadata.py", line 2027, in get_all_keyspaces
+    self._query_all()
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\cassandra\metadata.py", line 2808, in _query_all
+    *queries, timeout=self.timeout, fail_on_error=False)
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\cassandra\connection.py", line 1124, in wait_for_responses
+    return waiter.deliver(timeout)
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\cassandra\connection.py", line 1636, in deliver
+    raise OperationTimedOut()
+cassandra.OperationTimedOut: errors=None, last_host=None
+[2024-06-03 20:33:03,033] 1750 cassandra.cluster - ERROR -Control connection failed to connect, shutting down Cluster:
+Traceback (most recent call last):
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\cassandra\cluster.py", line 1740, in connect
+    self.control_connection.connect()
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\cassandra\cluster.py", line 3543, in connect
+    self._set_new_connection(self._reconnect_internal())
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\cassandra\cluster.py", line 3588, in _reconnect_internal
+    raise NoHostAvailable("Unable to connect to any servers", errors)
+cassandra.cluster.NoHostAvailable: ('Unable to connect to any servers', {'e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:0669df0f-031f-383e-b452-67a9679bbc6a': OperationTimedOut('errors=Timed out creating connection (5 seconds), last_host=None'), 'e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:00694036-11ec-39fb-8238-d79afd9b0e46': OperationTimedOut('errors=Timed out creating connection (5 seconds), last_host=None'), 'e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:b4f6d9ed-0f1d-3f7a-82f1-a4a7ea4f84d4': OperationTimedOut('errors=None, last_host=None'), 'e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:00958fd0-af98-391f-9f51-7e3fe763da5c': OperationTimedOut('errors=None, last_host=None'), 'e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:0750e59f-441b-37bb-b0a7-e097c5d725f7': OperationTimedOut('errors=Timed out creating connection (5 seconds), last_host=None'), 'e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:190dafab-6970-3a67-a21c-1226360de7dc': OperationTimedOut('errors=Timed out creating connection (5 seconds), last_host=None'), 'e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:9e3a5bee-3d95-3bf7-90f5-09bd2177324b': OperationTimedOut('errors=Timed out creating connection (5 seconds), last_host=None'), 'e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:98a2cd7e-fa1b-3950-942e-42af495c4248': OperationTimedOut('errors=Timed out creating connection (5 seconds), last_host=None'), 'e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:678e6a1d-e5b1-3cba-b949-7bfaf823957f': OperationTimedOut('errors=None, last_host=None')})
+[2024-06-03 20:33:03,037] 41 root - ERROR -Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\pipeline\training_pipeline.py] line number [69] error message [Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\pipeline\training_pipeline.py] line number [25] error message [Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\components\data_ingestion.py] line number [63] error message [Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\components\data_ingestion.py] line number [28] error message [Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\dataaccess\stock_data.py] line number [20] error message [('Unable to connect to any servers', {'e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:0669df0f-031f-383e-b452-67a9679bbc6a': OperationTimedOut('errors=Timed out creating connection (5 seconds), last_host=None'), 'e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:00694036-11ec-39fb-8238-d79afd9b0e46': OperationTimedOut('errors=Timed out creating connection (5 seconds), last_host=None'), 'e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:b4f6d9ed-0f1d-3f7a-82f1-a4a7ea4f84d4': OperationTimedOut('errors=None, last_host=None'), 'e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:00958fd0-af98-391f-9f51-7e3fe763da5c': OperationTimedOut('errors=None, last_host=None'), 'e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:0750e59f-441b-37bb-b0a7-e097c5d725f7': OperationTimedOut('errors=Timed out creating connection (5 seconds), last_host=None'), 'e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:190dafab-6970-3a67-a21c-1226360de7dc': OperationTimedOut('errors=Timed out creating connection (5 seconds), last_host=None'), 'e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:9e3a5bee-3d95-3bf7-90f5-09bd2177324b': OperationTimedOut('errors=Timed out creating connection (5 seconds), last_host=None'), 'e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:98a2cd7e-fa1b-3950-942e-42af495c4248': OperationTimedOut('errors=Timed out creating connection (5 seconds), last_host=None'), 'e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:678e6a1d-e5b1-3cba-b949-7bfaf823957f': OperationTimedOut('errors=None, last_host=None')})]]]]]
+Traceback (most recent call last):
+  File "C:\Users\DELL\PycharmProjects\pythonProject5\src\dataaccess\stock_data.py", line 20, in __init__
+    self.casandra_client=CassandraClient(keyspace_name=keyspace_name, secure_connect_bundle_path=secure_connect_bundle_path, token_file_path=token_file_path)
+  File "C:\Users\DELL\PycharmProjects\pythonProject5\src\configuration\casandradb_connection.py", line 40, in __init__
+    raise e
+  File "C:\Users\DELL\PycharmProjects\pythonProject5\src\configuration\casandradb_connection.py", line 36, in __init__
+    self.session = self.cluster.connect()
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\cassandra\cluster.py", line 1740, in connect
+    self.control_connection.connect()
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\cassandra\cluster.py", line 3543, in connect
+    self._set_new_connection(self._reconnect_internal())
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\cassandra\cluster.py", line 3588, in _reconnect_internal
+    raise NoHostAvailable("Unable to connect to any servers", errors)
+cassandra.cluster.NoHostAvailable: ('Unable to connect to any servers', {'e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:0669df0f-031f-383e-b452-67a9679bbc6a': OperationTimedOut('errors=Timed out creating connection (5 seconds), last_host=None'), 'e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:00694036-11ec-39fb-8238-d79afd9b0e46': OperationTimedOut('errors=Timed out creating connection (5 seconds), last_host=None'), 'e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:b4f6d9ed-0f1d-3f7a-82f1-a4a7ea4f84d4': OperationTimedOut('errors=None, last_host=None'), 'e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:00958fd0-af98-391f-9f51-7e3fe763da5c': OperationTimedOut('errors=None, last_host=None'), 'e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:0750e59f-441b-37bb-b0a7-e097c5d725f7': OperationTimedOut('errors=Timed out creating connection (5 seconds), last_host=None'), 'e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:190dafab-6970-3a67-a21c-1226360de7dc': OperationTimedOut('errors=Timed out creating connection (5 seconds), last_host=None'), 'e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:9e3a5bee-3d95-3bf7-90f5-09bd2177324b': OperationTimedOut('errors=Timed out creating connection (5 seconds), last_host=None'), 'e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:98a2cd7e-fa1b-3950-942e-42af495c4248': OperationTimedOut('errors=Timed out creating connection (5 seconds), last_host=None'), 'e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:678e6a1d-e5b1-3cba-b949-7bfaf823957f': OperationTimedOut('errors=None, last_host=None')})
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\DELL\PycharmProjects\pythonProject5\src\components\data_ingestion.py", line 28, in export_data_into_feature_store
+    stock_data=stockdata()
+  File "C:\Users\DELL\PycharmProjects\pythonProject5\src\dataaccess\stock_data.py", line 22, in __init__
+    raise SensorException(e,sys)
+src.exception.SensorException: Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\dataaccess\stock_data.py] line number [20] error message [('Unable to connect to any servers', {'e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:0669df0f-031f-383e-b452-67a9679bbc6a': OperationTimedOut('errors=Timed out creating connection (5 seconds), last_host=None'), 'e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:00694036-11ec-39fb-8238-d79afd9b0e46': OperationTimedOut('errors=Timed out creating connection (5 seconds), last_host=None'), 'e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:b4f6d9ed-0f1d-3f7a-82f1-a4a7ea4f84d4': OperationTimedOut('errors=None, last_host=None'), 'e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:00958fd0-af98-391f-9f51-7e3fe763da5c': OperationTimedOut('errors=None, last_host=None'), 'e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:0750e59f-441b-37bb-b0a7-e097c5d725f7': OperationTimedOut('errors=Timed out creating connection (5 seconds), last_host=None'), 'e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:190dafab-6970-3a67-a21c-1226360de7dc': OperationTimedOut('errors=Timed out creating connection (5 seconds), last_host=None'), 'e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:9e3a5bee-3d95-3bf7-90f5-09bd2177324b': OperationTimedOut('errors=Timed out creating connection (5 seconds), last_host=None'), 'e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:98a2cd7e-fa1b-3950-942e-42af495c4248': OperationTimedOut('errors=Timed out creating connection (5 seconds), last_host=None'), 'e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:678e6a1d-e5b1-3cba-b949-7bfaf823957f': OperationTimedOut('errors=None, last_host=None')})]
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\DELL\PycharmProjects\pythonProject5\src\components\data_ingestion.py", line 63, in initiate_data_ingestion
+    dataframe=self.export_data_into_feature_store()
+  File "C:\Users\DELL\PycharmProjects\pythonProject5\src\components\data_ingestion.py", line 40, in export_data_into_feature_store
+    raise SensorException(e,sys)
+src.exception.SensorException: Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\components\data_ingestion.py] line number [28] error message [Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\dataaccess\stock_data.py] line number [20] error message [('Unable to connect to any servers', {'e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:0669df0f-031f-383e-b452-67a9679bbc6a': OperationTimedOut('errors=Timed out creating connection (5 seconds), last_host=None'), 'e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:00694036-11ec-39fb-8238-d79afd9b0e46': OperationTimedOut('errors=Timed out creating connection (5 seconds), last_host=None'), 'e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:b4f6d9ed-0f1d-3f7a-82f1-a4a7ea4f84d4': OperationTimedOut('errors=None, last_host=None'), 'e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:00958fd0-af98-391f-9f51-7e3fe763da5c': OperationTimedOut('errors=None, last_host=None'), 'e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:0750e59f-441b-37bb-b0a7-e097c5d725f7': OperationTimedOut('errors=Timed out creating connection (5 seconds), last_host=None'), 'e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:190dafab-6970-3a67-a21c-1226360de7dc': OperationTimedOut('errors=Timed out creating connection (5 seconds), last_host=None'), 'e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:9e3a5bee-3d95-3bf7-90f5-09bd2177324b': OperationTimedOut('errors=Timed out creating connection (5 seconds), last_host=None'), 'e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:98a2cd7e-fa1b-3950-942e-42af495c4248': OperationTimedOut('errors=Timed out creating connection (5 seconds), last_host=None'), 'e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:678e6a1d-e5b1-3cba-b949-7bfaf823957f': OperationTimedOut('errors=None, last_host=None')})]]
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\DELL\PycharmProjects\pythonProject5\src\pipeline\training_pipeline.py", line 25, in start_data_ingestion
+    data_ingestion_artifact=data_ingestion.initiate_data_ingestion()
+  File "C:\Users\DELL\PycharmProjects\pythonProject5\src\components\data_ingestion.py", line 74, in initiate_data_ingestion
+    raise SensorException(e, sys)
+src.exception.SensorException: Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\components\data_ingestion.py] line number [63] error message [Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\components\data_ingestion.py] line number [28] error message [Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\dataaccess\stock_data.py] line number [20] error message [('Unable to connect to any servers', {'e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:0669df0f-031f-383e-b452-67a9679bbc6a': OperationTimedOut('errors=Timed out creating connection (5 seconds), last_host=None'), 'e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:00694036-11ec-39fb-8238-d79afd9b0e46': OperationTimedOut('errors=Timed out creating connection (5 seconds), last_host=None'), 'e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:b4f6d9ed-0f1d-3f7a-82f1-a4a7ea4f84d4': OperationTimedOut('errors=None, last_host=None'), 'e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:00958fd0-af98-391f-9f51-7e3fe763da5c': OperationTimedOut('errors=None, last_host=None'), 'e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:0750e59f-441b-37bb-b0a7-e097c5d725f7': OperationTimedOut('errors=Timed out creating connection (5 seconds), last_host=None'), 'e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:190dafab-6970-3a67-a21c-1226360de7dc': OperationTimedOut('errors=Timed out creating connection (5 seconds), last_host=None'), 'e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:9e3a5bee-3d95-3bf7-90f5-09bd2177324b': OperationTimedOut('errors=Timed out creating connection (5 seconds), last_host=None'), 'e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:98a2cd7e-fa1b-3950-942e-42af495c4248': OperationTimedOut('errors=Timed out creating connection (5 seconds), last_host=None'), 'e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:678e6a1d-e5b1-3cba-b949-7bfaf823957f': OperationTimedOut('errors=None, last_host=None')})]]]
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\DELL\PycharmProjects\pythonProject5\src\pipeline\training_pipeline.py", line 69, in run_pipeline
+    data_ingestion_artifact: DataIngestionArtifact = self.start_data_ingestion()
+  File "C:\Users\DELL\PycharmProjects\pythonProject5\src\pipeline\training_pipeline.py", line 31, in start_data_ingestion
+    raise SensorException(e,sys)
+src.exception.SensorException: Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\pipeline\training_pipeline.py] line number [25] error message [Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\components\data_ingestion.py] line number [63] error message [Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\components\data_ingestion.py] line number [28] error message [Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\dataaccess\stock_data.py] line number [20] error message [('Unable to connect to any servers', {'e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:0669df0f-031f-383e-b452-67a9679bbc6a': OperationTimedOut('errors=Timed out creating connection (5 seconds), last_host=None'), 'e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:00694036-11ec-39fb-8238-d79afd9b0e46': OperationTimedOut('errors=Timed out creating connection (5 seconds), last_host=None'), 'e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:b4f6d9ed-0f1d-3f7a-82f1-a4a7ea4f84d4': OperationTimedOut('errors=None, last_host=None'), 'e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:00958fd0-af98-391f-9f51-7e3fe763da5c': OperationTimedOut('errors=None, last_host=None'), 'e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:0750e59f-441b-37bb-b0a7-e097c5d725f7': OperationTimedOut('errors=Timed out creating connection (5 seconds), last_host=None'), 'e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:190dafab-6970-3a67-a21c-1226360de7dc': OperationTimedOut('errors=Timed out creating connection (5 seconds), last_host=None'), 'e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:9e3a5bee-3d95-3bf7-90f5-09bd2177324b': OperationTimedOut('errors=Timed out creating connection (5 seconds), last_host=None'), 'e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:98a2cd7e-fa1b-3950-942e-42af495c4248': OperationTimedOut('errors=Timed out creating connection (5 seconds), last_host=None'), 'e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:678e6a1d-e5b1-3cba-b949-7bfaf823957f': OperationTimedOut('errors=None, last_host=None')})]]]]
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "main.py", line 37, in trainRouteClient
+    train_pipeline.run_pipeline()
+  File "C:\Users\DELL\PycharmProjects\pythonProject5\src\pipeline\training_pipeline.py", line 76, in run_pipeline
+    raise SensorException(e, sys)
+src.exception.SensorException: Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\pipeline\training_pipeline.py] line number [69] error message [Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\pipeline\training_pipeline.py] line number [25] error message [Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\components\data_ingestion.py] line number [63] error message [Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\components\data_ingestion.py] line number [28] error message [Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\dataaccess\stock_data.py] line number [20] error message [('Unable to connect to any servers', {'e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:0669df0f-031f-383e-b452-67a9679bbc6a': OperationTimedOut('errors=Timed out creating connection (5 seconds), last_host=None'), 'e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:00694036-11ec-39fb-8238-d79afd9b0e46': OperationTimedOut('errors=Timed out creating connection (5 seconds), last_host=None'), 'e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:b4f6d9ed-0f1d-3f7a-82f1-a4a7ea4f84d4': OperationTimedOut('errors=None, last_host=None'), 'e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:00958fd0-af98-391f-9f51-7e3fe763da5c': OperationTimedOut('errors=None, last_host=None'), 'e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:0750e59f-441b-37bb-b0a7-e097c5d725f7': OperationTimedOut('errors=Timed out creating connection (5 seconds), last_host=None'), 'e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:190dafab-6970-3a67-a21c-1226360de7dc': OperationTimedOut('errors=Timed out creating connection (5 seconds), last_host=None'), 'e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:9e3a5bee-3d95-3bf7-90f5-09bd2177324b': OperationTimedOut('errors=Timed out creating connection (5 seconds), last_host=None'), 'e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:98a2cd7e-fa1b-3950-942e-42af495c4248': OperationTimedOut('errors=Timed out creating connection (5 seconds), last_host=None'), 'e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:678e6a1d-e5b1-3cba-b949-7bfaf823957f': OperationTimedOut('errors=None, last_host=None')})]]]]]
+[2024-06-03 20:33:03,048] 1745 main - ERROR -Exception on /train [GET]
+Traceback (most recent call last):
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\flask\app.py", line 2529, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\flask\app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\flask_cors\extension.py", line 178, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\flask\app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\flask_cors\decorator.py", line 130, in wrapped_function
+    resp = make_response(f(*args, **kwargs))
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\flask\helpers.py", line 209, in make_response
+    return current_app.make_response(args)  # type: ignore
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\flask\app.py", line 2139, in make_response
+    f"The view function for {request.endpoint!r} did not"
+TypeError: The view function for 'trainRouteClient' did not return a valid response. The function either returned None or ended without a return statement.
+[2024-06-03 20:33:34,180] 212 apscheduler.scheduler - INFO -Scheduler has been shut down

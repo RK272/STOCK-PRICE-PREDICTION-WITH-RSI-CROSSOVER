@@ -1,0 +1,85 @@
+[2024-06-03 18:27:39,064] 181 apscheduler.scheduler - INFO -Scheduler started
+[2024-06-03 18:28:00,951] 22 root - INFO -starting data ingestion
+[2024-06-03 18:28:00,952] 27 root - INFO -Exporting data from casandra to feature store 
+[2024-06-03 18:28:02,686] 1703 cassandra.cluster - WARNING -Downgrading core protocol version from 66 to 65 for e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:b4f6d9ed-0f1d-3f7a-82f1-a4a7ea4f84d4. To avoid this, it is best practice to explicitly set Cluster(protocol_version) to the version supported by your cluster. http://datastax.github.io/python-driver/api/cassandra/cluster.html#cassandra.cluster.Cluster.protocol_version
+[2024-06-03 18:28:04,040] 1703 cassandra.cluster - WARNING -Downgrading core protocol version from 65 to 5 for e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:b4f6d9ed-0f1d-3f7a-82f1-a4a7ea4f84d4. To avoid this, it is best practice to explicitly set Cluster(protocol_version) to the version supported by your cluster. http://datastax.github.io/python-driver/api/cassandra/cluster.html#cassandra.cluster.Cluster.protocol_version
+[2024-06-03 18:28:05,643] 1703 cassandra.cluster - WARNING -Downgrading core protocol version from 5 to 4 for e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:b4f6d9ed-0f1d-3f7a-82f1-a4a7ea4f84d4. To avoid this, it is best practice to explicitly set Cluster(protocol_version) to the version supported by your cluster. http://datastax.github.io/python-driver/api/cassandra/cluster.html#cassandra.cluster.Cluster.protocol_version
+[2024-06-03 18:28:08,511] 292 cassandra.policies - INFO -Using datacenter 'eu-west-1' for DCAwareRoundRobinPolicy (via host 'e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:b4f6d9ed-0f1d-3f7a-82f1-a4a7ea4f84d4'); if incorrect, please specify a local_dc to the constructor, or limit contact points to local cluster nodes
+[2024-06-03 18:28:08,512] 3863 cassandra.cluster - WARNING -Found multiple hosts with the same endpoint (e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:b4f6d9ed-0f1d-3f7a-82f1-a4a7ea4f84d4). Excluding peer 10.0.0.9
+[2024-06-03 18:28:08,512] 2126 cassandra.cluster - INFO -Cassandra host e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:00694036-11ec-39fb-8238-d79afd9b0e46 removed
+[2024-06-03 18:28:16,728] 36 root - INFO -artifact-datainjection folder created 
+[2024-06-03 18:28:16,786] 45 root - INFO -performed train test split on dataframe
+[2024-06-03 18:28:16,786] 46 root - INFO -exited split_data as train test split
+[2024-06-03 18:28:16,787] 51 root - INFO -exporting train and test file path
+[2024-06-03 18:28:16,840] 56 root - INFO -exported train and test file path
+[2024-06-03 18:28:16,840] 26 root - INFO -Data ingestion completed and artifact
+[2024-06-03 18:28:16,841] 27 root - INFO -Data ingestion completed and artifact: DataIngestionArtifact(trained_file_path='artifact/1RELIANCE.csv')
+[2024-06-03 18:28:17,051] 25 root - INFO -Required number of columns: 5
+[2024-06-03 18:28:17,051] 26 root - INFO -Data frame has columns: 5
+[2024-06-03 18:28:17,051] 45 root - INFO -Missing numerical columns: [[]]
+[2024-06-03 18:28:17,052] 133 root - INFO -Data validation artifact: DataValidationArtifact(validation_status=True, valid_train_file_path='artifact/1RELIANCE.csv', invalid_train_file_path=None, invalid_test_file_path=None, drift_report_file_path='artifact\\06_03_2024_18_27_32\\data_validation\\drift_report\\report.yaml')
+[2024-06-03 18:28:40,525] 41 root - ERROR -Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\pipeline\training_pipeline.py] line number [63] error message [Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\pipeline\training_pipeline.py] line number [50] error message [Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\components\data_transformation.py] line number [143] error message [time data '23-01-2023 10:30' does not match format '%Y-%m-%d %H:%M:%S']]]
+Traceback (most recent call last):
+  File "C:\Users\DELL\PycharmProjects\pythonProject5\src\components\data_transformation.py", line 143, in initiate_data_transformation
+    result_df33['NumericTimestamp1'] = result_df33['DateTime'].apply(lambda x: datetime.strptime(x, date_format).timestamp())
+  File "C:\Users\DELL\anaconda3\envs\pythonProject5\lib\site-packages\pandas\core\series.py", line 4357, in apply
+    return SeriesApply(self, func, convert_dtype, args, kwargs).apply()
+  File "C:\Users\DELL\anaconda3\envs\pythonProject5\lib\site-packages\pandas\core\apply.py", line 1043, in apply
+    return self.apply_standard()
+  File "C:\Users\DELL\anaconda3\envs\pythonProject5\lib\site-packages\pandas\core\apply.py", line 1101, in apply_standard
+    convert=self.convert_dtype,
+  File "pandas\_libs\lib.pyx", line 2859, in pandas._libs.lib.map_infer
+  File "C:\Users\DELL\PycharmProjects\pythonProject5\src\components\data_transformation.py", line 143, in <lambda>
+    result_df33['NumericTimestamp1'] = result_df33['DateTime'].apply(lambda x: datetime.strptime(x, date_format).timestamp())
+  File "C:\Users\DELL\anaconda3\envs\pythonProject5\lib\_strptime.py", line 577, in _strptime_datetime
+    tt, fraction, gmtoff_fraction = _strptime(data_string, format)
+  File "C:\Users\DELL\anaconda3\envs\pythonProject5\lib\_strptime.py", line 359, in _strptime
+    (data_string, format))
+ValueError: time data '23-01-2023 10:30' does not match format '%Y-%m-%d %H:%M:%S'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\DELL\PycharmProjects\pythonProject5\src\pipeline\training_pipeline.py", line 50, in start_data_transformation
+    data_transformation_artifact =  data_transformation.initiate_data_transformation()
+  File "C:\Users\DELL\PycharmProjects\pythonProject5\src\components\data_transformation.py", line 226, in initiate_data_transformation
+    raise SensorException(e, sys) from e
+src.exception.SensorException: Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\components\data_transformation.py] line number [143] error message [time data '23-01-2023 10:30' does not match format '%Y-%m-%d %H:%M:%S']
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\DELL\PycharmProjects\pythonProject5\src\pipeline\training_pipeline.py", line 63, in run_pipeline
+    data_validation_artifact=data_validation_artifact)
+  File "C:\Users\DELL\PycharmProjects\pythonProject5\src\pipeline\training_pipeline.py", line 53, in start_data_transformation
+    raise  SensorException(e,sys)
+src.exception.SensorException: Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\pipeline\training_pipeline.py] line number [50] error message [Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\components\data_transformation.py] line number [143] error message [time data '23-01-2023 10:30' does not match format '%Y-%m-%d %H:%M:%S']]
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "main.py", line 37, in trainRouteClient
+    train_pipeline.run_pipeline()
+  File "C:\Users\DELL\PycharmProjects\pythonProject5\src\pipeline\training_pipeline.py", line 66, in run_pipeline
+    raise SensorException(e, sys)
+src.exception.SensorException: Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\pipeline\training_pipeline.py] line number [63] error message [Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\pipeline\training_pipeline.py] line number [50] error message [Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\components\data_transformation.py] line number [143] error message [time data '23-01-2023 10:30' does not match format '%Y-%m-%d %H:%M:%S']]]
+[2024-06-03 18:28:40,554] 1745 main - ERROR -Exception on /train [GET]
+Traceback (most recent call last):
+  File "C:\Users\DELL\anaconda3\envs\pythonProject5\lib\site-packages\flask\app.py", line 2529, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\DELL\anaconda3\envs\pythonProject5\lib\site-packages\flask\app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\DELL\anaconda3\envs\pythonProject5\lib\site-packages\flask_cors\extension.py", line 178, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\DELL\anaconda3\envs\pythonProject5\lib\site-packages\flask\app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\DELL\anaconda3\envs\pythonProject5\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "C:\Users\DELL\anaconda3\envs\pythonProject5\lib\site-packages\flask_cors\decorator.py", line 130, in wrapped_function
+    resp = make_response(f(*args, **kwargs))
+  File "C:\Users\DELL\anaconda3\envs\pythonProject5\lib\site-packages\flask\helpers.py", line 209, in make_response
+    return current_app.make_response(args)  # type: ignore
+  File "C:\Users\DELL\anaconda3\envs\pythonProject5\lib\site-packages\flask\app.py", line 2139, in make_response
+    f"The view function for {request.endpoint!r} did not"
+TypeError: The view function for 'trainRouteClient' did not return a valid response. The function either returned None or ended without a return statement.
+[2024-06-03 18:33:30,076] 212 apscheduler.scheduler - INFO -Scheduler has been shut down

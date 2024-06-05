@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <div id="predictionSection">
+        <h1>Enter Data for Prediction</h1>
+        <form id="predictionForm">
+
+            <label for="RSI_Crossed_40">RSI_Crossed_40:</label>
+            <input type="number" id="RSI_Crossed_40" name="RSI_Crossed_40" required><br>
+
+            <label for="rsi9m">rsi9m:</label>
+            <input type="number" id="rsi9m" name="rsi9m" required><br>
+
+            <label for="EMA20">EMA20:</label>
+            <input type="number" id="EMA20" name="EMA20" required><br>
+
+            <label for="EMA5">EMA5:</label>
+            <input type="number" id="EMA5" name="EMA5" required><br>
+
+
+
+            <button type="button" onclick="sendFormData()">Predict</button>
+        </form>
+
+        <p id="predictionResult"></p>
+        <p>If the prediction is 0, then it fails; if it is 1, then RSI crossover will succeed.</p>
+
+        <script>
+            function sendFormData() {
+                // Get form values
+
+                var RSI_Crossed_40 = document.getElementById('RSI_Crossed_40').value;
+                var rsi9m = document.getElementById('rsi9m').value;
+                var EMA20 = document.getElementById('EMA20').value;
+                var EMA5 = document.getElementById('EMA5').value;
+
+                // Create an object with form data
+                var formData = {
+
+                    'RSI_Crossed_40': RSI_Crossed_40,
+                    'rsi9m': rsi9m,
+                    'EMA20': EMA20,
+                    'EMA5': EMA5,
+
+                };
+
+                // Make an AJAX request to the server for prediction
+                fetch('/predict', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData),
+                })
+                .then(response => response.json())
+                .then(data => {
+                    // Update the page with the prediction result
+                    document.getElementById('predictionResult').innerText = data.prediction_result;
+                })
+                .catch(error => {
+                    console.error('Error during prediction:', error);
+                });
+            }
+        </script>
+    </div>
+</body>
+</html>

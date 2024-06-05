@@ -1,0 +1,68 @@
+[2024-06-03 12:02:25,545] 181 apscheduler.scheduler - INFO -Scheduler started
+[2024-06-03 12:02:29,594] 20 root - INFO -starting data ingestion
+[2024-06-03 12:02:29,594] 25 root - INFO -Exporting data from casandra to feature store 
+[2024-06-03 12:02:31,563] 1703 cassandra.cluster - WARNING -Downgrading core protocol version from 66 to 65 for e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:00694036-11ec-39fb-8238-d79afd9b0e46. To avoid this, it is best practice to explicitly set Cluster(protocol_version) to the version supported by your cluster. http://datastax.github.io/python-driver/api/cassandra/cluster.html#cassandra.cluster.Cluster.protocol_version
+[2024-06-03 12:02:32,762] 1703 cassandra.cluster - WARNING -Downgrading core protocol version from 65 to 5 for e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:00694036-11ec-39fb-8238-d79afd9b0e46. To avoid this, it is best practice to explicitly set Cluster(protocol_version) to the version supported by your cluster. http://datastax.github.io/python-driver/api/cassandra/cluster.html#cassandra.cluster.Cluster.protocol_version
+[2024-06-03 12:02:34,313] 1703 cassandra.cluster - WARNING -Downgrading core protocol version from 5 to 4 for e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:00694036-11ec-39fb-8238-d79afd9b0e46. To avoid this, it is best practice to explicitly set Cluster(protocol_version) to the version supported by your cluster. http://datastax.github.io/python-driver/api/cassandra/cluster.html#cassandra.cluster.Cluster.protocol_version
+[2024-06-03 12:02:37,297] 292 cassandra.policies - INFO -Using datacenter 'eu-west-1' for DCAwareRoundRobinPolicy (via host 'e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:00694036-11ec-39fb-8238-d79afd9b0e46'); if incorrect, please specify a local_dc to the constructor, or limit contact points to local cluster nodes
+[2024-06-03 12:02:42,733] 41 root - ERROR -Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\pipeline\training_pipeline.py] line number [32] error message [Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\pipeline\training_pipeline.py] line number [23] error message [Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\components\data_ingestion.py] line number [28] error message [Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\dataaccess\stock_data.py] line number [35] error message ['Session' object has no attribute 'session']]]]
+Traceback (most recent call last):
+  File "C:\Users\DELL\PycharmProjects\pythonProject5\src\dataaccess\stock_data.py", line 35, in export_collection_as_dataframe
+    result = session.session.execute(query)
+AttributeError: 'Session' object has no attribute 'session'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\DELL\PycharmProjects\pythonProject5\src\components\data_ingestion.py", line 28, in export_data_into_feature_store
+    dataframe= stock_data.export_collection_as_dataframe()
+  File "C:\Users\DELL\PycharmProjects\pythonProject5\src\dataaccess\stock_data.py", line 45, in export_collection_as_dataframe
+    raise SensorException(e,sys)
+src.exception.SensorException: Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\dataaccess\stock_data.py] line number [35] error message ['Session' object has no attribute 'session']
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\DELL\PycharmProjects\pythonProject5\src\pipeline\training_pipeline.py", line 23, in start_data_ingestion
+    data_ingestion.export_data_into_feature_store()
+  File "C:\Users\DELL\PycharmProjects\pythonProject5\src\components\data_ingestion.py", line 38, in export_data_into_feature_store
+    raise SensorException(e,sys)
+src.exception.SensorException: Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\components\data_ingestion.py] line number [28] error message [Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\dataaccess\stock_data.py] line number [35] error message ['Session' object has no attribute 'session']]
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\DELL\PycharmProjects\pythonProject5\src\pipeline\training_pipeline.py", line 32, in run_pipeline
+    self.start_data_ingestion()
+  File "C:\Users\DELL\PycharmProjects\pythonProject5\src\pipeline\training_pipeline.py", line 27, in start_data_ingestion
+    raise SensorException(e,sys)
+src.exception.SensorException: Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\pipeline\training_pipeline.py] line number [23] error message [Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\components\data_ingestion.py] line number [28] error message [Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\dataaccess\stock_data.py] line number [35] error message ['Session' object has no attribute 'session']]]
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "main.py", line 37, in trainRouteClient
+    train_pipeline.run_pipeline()
+  File "C:\Users\DELL\PycharmProjects\pythonProject5\src\pipeline\training_pipeline.py", line 35, in run_pipeline
+    raise SensorException(e, sys)
+src.exception.SensorException: Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\pipeline\training_pipeline.py] line number [32] error message [Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\pipeline\training_pipeline.py] line number [23] error message [Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\components\data_ingestion.py] line number [28] error message [Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\dataaccess\stock_data.py] line number [35] error message ['Session' object has no attribute 'session']]]]
+[2024-06-03 12:02:42,737] 1745 main - ERROR -Exception on /train [GET]
+Traceback (most recent call last):
+  File "C:\Users\DELL\anaconda3\envs\pythonProject5\lib\site-packages\flask\app.py", line 2529, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\DELL\anaconda3\envs\pythonProject5\lib\site-packages\flask\app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\DELL\anaconda3\envs\pythonProject5\lib\site-packages\flask_cors\extension.py", line 178, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\DELL\anaconda3\envs\pythonProject5\lib\site-packages\flask\app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\DELL\anaconda3\envs\pythonProject5\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "C:\Users\DELL\anaconda3\envs\pythonProject5\lib\site-packages\flask_cors\decorator.py", line 130, in wrapped_function
+    resp = make_response(f(*args, **kwargs))
+  File "C:\Users\DELL\anaconda3\envs\pythonProject5\lib\site-packages\flask\helpers.py", line 209, in make_response
+    return current_app.make_response(args)  # type: ignore
+  File "C:\Users\DELL\anaconda3\envs\pythonProject5\lib\site-packages\flask\app.py", line 2139, in make_response
+    f"The view function for {request.endpoint!r} did not"
+TypeError: The view function for 'trainRouteClient' did not return a valid response. The function either returned None or ended without a return statement.
+[2024-06-03 12:03:07,599] 212 apscheduler.scheduler - INFO -Scheduler has been shut down

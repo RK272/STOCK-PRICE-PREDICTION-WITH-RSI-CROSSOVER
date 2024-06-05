@@ -1,0 +1,83 @@
+[2024-06-05 13:23:23,514] 181 apscheduler.scheduler - INFO -Scheduler started
+[2024-06-05 13:23:27,266] 24 root - INFO -starting data ingestion
+[2024-06-05 13:23:27,267] 27 root - INFO -Exporting data from casandra to feature store 
+[2024-06-05 13:23:30,422] 1703 cassandra.cluster - WARNING -Downgrading core protocol version from 66 to 65 for e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:0669df0f-031f-383e-b452-67a9679bbc6a. To avoid this, it is best practice to explicitly set Cluster(protocol_version) to the version supported by your cluster. http://datastax.github.io/python-driver/api/cassandra/cluster.html#cassandra.cluster.Cluster.protocol_version
+[2024-06-05 13:23:31,776] 1703 cassandra.cluster - WARNING -Downgrading core protocol version from 65 to 5 for e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:0669df0f-031f-383e-b452-67a9679bbc6a. To avoid this, it is best practice to explicitly set Cluster(protocol_version) to the version supported by your cluster. http://datastax.github.io/python-driver/api/cassandra/cluster.html#cassandra.cluster.Cluster.protocol_version
+[2024-06-05 13:23:33,346] 1703 cassandra.cluster - WARNING -Downgrading core protocol version from 5 to 4 for e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:0669df0f-031f-383e-b452-67a9679bbc6a. To avoid this, it is best practice to explicitly set Cluster(protocol_version) to the version supported by your cluster. http://datastax.github.io/python-driver/api/cassandra/cluster.html#cassandra.cluster.Cluster.protocol_version
+[2024-06-05 13:23:35,912] 292 cassandra.policies - INFO -Using datacenter 'eu-west-1' for DCAwareRoundRobinPolicy (via host 'e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:0669df0f-031f-383e-b452-67a9679bbc6a'); if incorrect, please specify a local_dc to the constructor, or limit contact points to local cluster nodes
+[2024-06-05 13:23:35,913] 3863 cassandra.cluster - WARNING -Found multiple hosts with the same endpoint (e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:0669df0f-031f-383e-b452-67a9679bbc6a). Excluding peer 10.0.0.5
+[2024-06-05 13:23:35,914] 2126 cassandra.cluster - INFO -Cassandra host e4d5a3c1-e93d-4762-b366-9ba2252f22f5-eu-west-1.db.astra.datastax.com:29042:00694036-11ec-39fb-8238-d79afd9b0e46 removed
+[2024-06-05 13:23:43,841] 36 root - INFO -artifact-datainjection folder created 
+[2024-06-05 13:23:43,908] 45 root - INFO -performed train test split on dataframe
+[2024-06-05 13:23:43,909] 46 root - INFO -exited split_data as train test split
+[2024-06-05 13:23:43,910] 51 root - INFO -exporting train and test file path
+[2024-06-05 13:23:43,965] 56 root - INFO -exported train and test file path
+[2024-06-05 13:23:43,965] 28 root - INFO -Data ingestion completed and artifact
+[2024-06-05 13:23:43,965] 29 root - INFO -Data ingestion completed and artifact: DataIngestionArtifact(trained_file_path='artifact/1RELIANCE.csv')
+[2024-06-05 13:23:44,171] 25 root - INFO -Required number of columns: 5
+[2024-06-05 13:23:44,171] 26 root - INFO -Data frame has columns: 5
+[2024-06-05 13:23:44,171] 45 root - INFO -Missing numerical columns: [[]]
+[2024-06-05 13:23:44,171] 133 root - INFO -Data validation artifact: DataValidationArtifact(validation_status=True, valid_train_file_path='artifact/1RELIANCE.csv', invalid_train_file_path=None, invalid_test_file_path=None, drift_report_file_path='artifact\\06_05_2024_13_23_17\\data_validation\\drift_report\\report.yaml')
+[2024-06-05 13:23:44,179] 113 root - INFO -iniitiating data transformation
+[2024-06-05 13:23:44,333] 123 root - INFO -fitting data to preprocessor object 
+[2024-06-05 13:24:03,399] 126 root - INFO -rsi,ema values generated and created new table  
+[2024-06-05 13:24:03,615] 162 root - INFO -created dataframe with rsi14,rsi9,ema5,ema20 and result column  
+[2024-06-05 13:24:03,618] 167 root - INFO -train test split done  
+[2024-06-05 13:24:03,619] 171 root - INFO -droped target column from train_df  
+[2024-06-05 13:24:03,620] 174 root - INFO -created target column for train_df  
+[2024-06-05 13:24:03,620] 176 root - INFO -converted  target_feature_train_df to dictionory 
+[2024-06-05 13:24:03,621] 183 root - INFO -droped target column from test_df  
+[2024-06-05 13:24:03,622] 186 root - INFO -created target column for test_df  
+[2024-06-05 13:24:03,622] 188 root - INFO -converted  target_feature_test_df to dictionory 
+[2024-06-05 13:24:03,622] 193 root - INFO -created train_arr and test_arr
+[2024-06-05 13:24:03,630] 47 root - INFO -Entered the save_object method of MainUtils class
+[2024-06-05 13:24:03,634] 51 root - INFO -Exited the save_object method of MainUtils class
+[2024-06-05 13:24:03,634] 47 root - INFO -Entered the save_object method of MainUtils class
+[2024-06-05 13:24:03,637] 51 root - INFO -Exited the save_object method of MainUtils class
+[2024-06-05 13:24:03,674] 202 root - INFO -save test.np and train.np to transformed folder and preprocesor object to transformed object folder
+[2024-06-05 13:24:03,674] 212 root - INFO -Data transformation artifact: DataTransformationArtifact(transformed_object_file_path='artifact\\06_05_2024_13_23_17\\data_transformation\\transformed_object\\preprocessing.pkl', transformed_object2_file_path='artifact\\06_05_2024_13_23_17\\data_transformation\\transformed_object\\preprocessing1.pkl', transformed_train_file_path='artifact\\06_05_2024_13_23_17\\data_transformation\\transformed\\train.npy', transformed_test_file_path='artifact\\06_05_2024_13_23_17\\data_transformation\\transformed\\test.npy', transformed_train_file_path1='artifact\\06_05_2024_13_23_17\\data_transformation\\transformed_object\\train.csv')
+[2024-06-05 13:24:03,674] 213 root - INFO -data transformation completed 
+[2024-06-05 13:24:04,006] 51 root - INFO -model trained
+[2024-06-05 13:24:04,035] 60 root - INFO -fiscore precesion score,recall score calculated
+[2024-06-05 13:24:04,053] 74 root - INFO -checking overfitting and underfitting of model 
+[2024-06-05 13:24:04,056] 47 root - INFO -Entered the save_object method of MainUtils class
+[2024-06-05 13:24:04,067] 51 root - INFO -Exited the save_object method of MainUtils class
+[2024-06-05 13:24:04,067] 47 root - INFO -Entered the save_object method of MainUtils class
+[2024-06-05 13:24:04,078] 51 root - INFO -Exited the save_object method of MainUtils class
+[2024-06-05 13:24:04,080] 96 root - INFO -Model trainer artifact: ModelTrainerArtifact(trained_model_file_path='artifact\\06_05_2024_13_23_17\\model_trainer\\trained_model\\model.pkl', train_metric_artifact=regressionMetricArtifact(f1_score=0.37049180327868847, precision_score=0.9186991869918699, recall_score=0.23203285420944558), test_metric_artifact=regressionMetricArtifact(f1_score=0.2531645569620253, precision_score=0.6060606060606061, recall_score=0.16))
+[2024-06-05 13:24:04,081] 34 root - INFO -model evalution stared 
+[2024-06-05 13:24:04,285] 113 root - INFO -Model evaluation artifact: ModelEvaluationArtifact(is_model_accepted=False, improved_accuracy=0.0, best_model_path='saved_models\\1717467081\\model.pkl', trained_model_path='artifact\\06_05_2024_13_23_17\\model_trainer\\trained_model\\model.pkl', train_model_metric_artifact=regressionMetricArtifact(f1_score=0.37049180327868847, precision_score=0.9186991869918699, recall_score=0.23203285420944558), best_model_metric_artifact=regressionMetricArtifact(f1_score=0.37049180327868847, precision_score=0.9186991869918699, recall_score=0.23203285420944558))
+[2024-06-05 13:24:04,285] 114 root - INFO -model evalution done 
+[2024-06-05 13:24:04,287] 152 root - ERROR -Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\pipeline\training_pipeline.py] line number [100] error message [Trained model is not better than the best model]
+Traceback (most recent call last):
+  File "C:\Users\DELL\PycharmProjects\pythonProject5\src\pipeline\training_pipeline.py", line 100, in run_pipeline
+    raise Exception("Trained model is not better than the best model")
+Exception: Trained model is not better than the best model
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "main.py", line 148, in trainRouteClient
+    train_pipeline.run_pipeline()
+  File "C:\Users\DELL\PycharmProjects\pythonProject5\src\pipeline\training_pipeline.py", line 104, in run_pipeline
+    raise SensorException(e, sys)
+src.exception.SensorException: Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\pipeline\training_pipeline.py] line number [100] error message [Trained model is not better than the best model]
+[2024-06-05 13:24:04,289] 1745 main - ERROR -Exception on /train [GET]
+Traceback (most recent call last):
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\flask\app.py", line 2529, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\flask\app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\flask_cors\extension.py", line 178, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\flask\app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\flask_cors\decorator.py", line 130, in wrapped_function
+    resp = make_response(f(*args, **kwargs))
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\flask\helpers.py", line 209, in make_response
+    return current_app.make_response(args)  # type: ignore
+  File "C:\Users\DELL\anaconda3\envs\dai5\lib\site-packages\flask\app.py", line 2139, in make_response
+    f"The view function for {request.endpoint!r} did not"
+TypeError: The view function for 'trainRouteClient' did not return a valid response. The function either returned None or ended without a return statement.

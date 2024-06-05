@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Model Training and Prediction</title>
+</head>
+<body>
+    <h2>Data Ingestion Form</h2>
+    <form id="dataIngestionForm">
+        <label for="startDate">Start Date:</label>
+        <input type="date" id="startDate" name="startDate" required><br><br>
+
+        <label for="endDate">End Date:</label>
+        <input type="date" id="endDate" name="endDate" required><br><br>
+
+        <label for="symbol">Symbol (e.g., NSE:RELIANCE-EQ):</label>
+        <input type="text" id="symbol" name="symbol" pattern="NSE:[A-Z0-9\-]+-EQ" title="Please enter a symbol in the format NSE:XXXX-EQ" required><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+
+    <div id="responseMessage"></div>
+
+    <script>
+        document.getElementById("dataIngestionForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent the form from submitting normally
+
+            // Get form data
+            const formData = new FormData(event.target);
+            const startDate = formData.get("startDate");
+            const endDate = formData.get("endDate");
+            const symbol = formData.get("symbol");
+
+            // Perform any additional client-side validation if needed
+
+            // Send data to backend
+            fetch("/train", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    "startDate": startDate,
+                    "endDate": endDate,
+                    "symbol": symbol
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Handle response from backend
+                document.getElementById("responseMessage").textContent = data.message;
+            })
+            .catch(error => {
+                console.error("Error:", error);
+                document.getElementById("responseMessage").textContent = "An error occurred. Please try again.";
+            });
+        });
+    </script>
+    <hr>
+
+    <div id="predictionSection">
+        <h1>Enter Data for Prediction</h1>
+        <form id="predictionForm">
+
+            <label for="RSI_Crossed_40">RSI_Crossed_40:</label>
+            <input type="number" id="RSI_Crossed_40" name="RSI_Crossed_40" required><br>
+
+            <label for="rsi9m">rsi9m:</label>
+            <input type="number" id="rsi9m" name="rsi9m" required><br>
+
+            <label for="EMA20">EMA20:</label>
+            <input type="number" id="EMA20" name="EMA20" required><br>
+
+            <label for="EMA5">EMA5:</label>
+            <input type="number" id="EMA5" name="EMA5" required><br>
+
+
+
+            <button type="button" onclick="sendFormData()">Predict</button>
+        </form>
+
+        <p id="predictionResult"></p>
+
+        <script>
+            function sendFormData() {
+                // Get form values
+
+                var RSI_Crossed_40 = document.getElementById('RSI_Crossed_40').value;
+                var rsi9m = document.getElementById('rsi9m').value;
+                var EMA20 = document.getElementById('EMA20').value;
+                var EMA5 = document.getElementById('EMA5').value;
+
+                // Create an object with form data
+                var formData = {
+
+                    'RSI_Crossed_40': RSI_Crossed_40,
+                    'rsi9m': rsi9m,
+                    'EMA20': EMA20,
+                    'EMA5': EMA5,
+
+                };
+
+                // Make an AJAX request to the server for prediction
+                fetch('/predict', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData),
+                })
+                .then(response => response.json())
+                .then(data => {
+                    // Update the page with the prediction result
+                    document.getElementById('predictionResult').innerText = data.prediction_result;
+                })
+                .catch(error => {
+                    console.error('Error during prediction:', error);
+                });
+            }
+        </script>
+    </div>
+</body>
+</html>

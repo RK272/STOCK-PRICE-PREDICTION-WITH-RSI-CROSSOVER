@@ -1,0 +1,68 @@
+[2024-06-03 11:56:47,971] 181 apscheduler.scheduler - INFO -Scheduler started
+[2024-06-03 11:57:59,296] 20 root - INFO -starting data ingestion
+[2024-06-03 11:57:59,296] 25 root - INFO -Exporting data from casandra to feature store 
+[2024-06-03 11:57:59,298] 41 root - ERROR -Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\pipeline\training_pipeline.py] line number [32] error message [Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\pipeline\training_pipeline.py] line number [23] error message [Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\components\data_ingestion.py] line number [26] error message [Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\dataaccess\stock_data.py] line number [20] error message [Secure connect bundle not found at src/casandrafiles/secure-connect-test.zip]]]]
+Traceback (most recent call last):
+  File "C:\Users\DELL\PycharmProjects\pythonProject5\src\dataaccess\stock_data.py", line 20, in __init__
+    self.casandra_client=CassandraClient(keyspace_name=keyspace_name, secure_connect_bundle_path=secure_connect_bundle_path, token_file_path=token_file_path)
+  File "C:\Users\DELL\PycharmProjects\pythonProject5\src\configuration\casandradb_connection.py", line 40, in __init__
+    raise e
+  File "C:\Users\DELL\PycharmProjects\pythonProject5\src\configuration\casandradb_connection.py", line 18, in __init__
+    raise FileNotFoundError(f"Secure connect bundle not found at {secure_connect_bundle_path}")
+FileNotFoundError: Secure connect bundle not found at src/casandrafiles/secure-connect-test.zip
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\DELL\PycharmProjects\pythonProject5\src\components\data_ingestion.py", line 26, in export_data_into_feature_store
+    stock_data=stockdata()
+  File "C:\Users\DELL\PycharmProjects\pythonProject5\src\dataaccess\stock_data.py", line 22, in __init__
+    raise SensorException(e,sys)
+src.exception.SensorException: Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\dataaccess\stock_data.py] line number [20] error message [Secure connect bundle not found at src/casandrafiles/secure-connect-test.zip]
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\DELL\PycharmProjects\pythonProject5\src\pipeline\training_pipeline.py", line 23, in start_data_ingestion
+    data_ingestion.export_data_into_feature_store()
+  File "C:\Users\DELL\PycharmProjects\pythonProject5\src\components\data_ingestion.py", line 38, in export_data_into_feature_store
+    raise SensorException(e,sys)
+src.exception.SensorException: Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\components\data_ingestion.py] line number [26] error message [Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\dataaccess\stock_data.py] line number [20] error message [Secure connect bundle not found at src/casandrafiles/secure-connect-test.zip]]
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\DELL\PycharmProjects\pythonProject5\src\pipeline\training_pipeline.py", line 32, in run_pipeline
+    self.start_data_ingestion()
+  File "C:\Users\DELL\PycharmProjects\pythonProject5\src\pipeline\training_pipeline.py", line 27, in start_data_ingestion
+    raise SensorException(e,sys)
+src.exception.SensorException: Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\pipeline\training_pipeline.py] line number [23] error message [Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\components\data_ingestion.py] line number [26] error message [Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\dataaccess\stock_data.py] line number [20] error message [Secure connect bundle not found at src/casandrafiles/secure-connect-test.zip]]]
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "main.py", line 37, in trainRouteClient
+    train_pipeline.run_pipeline()
+  File "C:\Users\DELL\PycharmProjects\pythonProject5\src\pipeline\training_pipeline.py", line 35, in run_pipeline
+    raise SensorException(e, sys)
+src.exception.SensorException: Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\pipeline\training_pipeline.py] line number [32] error message [Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\pipeline\training_pipeline.py] line number [23] error message [Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\components\data_ingestion.py] line number [26] error message [Error occurred python script name [C:\Users\DELL\PycharmProjects\pythonProject5\src\dataaccess\stock_data.py] line number [20] error message [Secure connect bundle not found at src/casandrafiles/secure-connect-test.zip]]]]
+[2024-06-03 11:57:59,381] 1745 main - ERROR -Exception on /train [GET]
+Traceback (most recent call last):
+  File "C:\Users\DELL\anaconda3\envs\pythonProject5\lib\site-packages\flask\app.py", line 2529, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\DELL\anaconda3\envs\pythonProject5\lib\site-packages\flask\app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\DELL\anaconda3\envs\pythonProject5\lib\site-packages\flask_cors\extension.py", line 178, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\DELL\anaconda3\envs\pythonProject5\lib\site-packages\flask\app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\DELL\anaconda3\envs\pythonProject5\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "C:\Users\DELL\anaconda3\envs\pythonProject5\lib\site-packages\flask_cors\decorator.py", line 130, in wrapped_function
+    resp = make_response(f(*args, **kwargs))
+  File "C:\Users\DELL\anaconda3\envs\pythonProject5\lib\site-packages\flask\helpers.py", line 209, in make_response
+    return current_app.make_response(args)  # type: ignore
+  File "C:\Users\DELL\anaconda3\envs\pythonProject5\lib\site-packages\flask\app.py", line 2139, in make_response
+    f"The view function for {request.endpoint!r} did not"
+TypeError: The view function for 'trainRouteClient' did not return a valid response. The function either returned None or ended without a return statement.
+[2024-06-03 11:58:48,575] 212 apscheduler.scheduler - INFO -Scheduler has been shut down
