@@ -63,7 +63,12 @@ class DataIngestion:
             dataframe=self.export_data_into_feature_store()
 
             self.split_data_as_train_test(dataframe=dataframe)
-            """HERE BELOW ONE IS CORRECT DATAINGECTION ARTIFACT I COMMENTED THAT BCZ MY CASSANDRA HAVING DATA UPDATE PROBLEM"""
+            """HERE BELOW ONE IS CORRECT DATAINGECTION ARTIFACT I COMMENTED THAT BCZ MY CASSANDRA HAVING DATA UPDATE PROBLEM
+            i cant update huge size data i test with small zize data it ipdated and then feteched data back as csv also
+            if your casandra db has huge amount of data then use comented data_ingestion_artifact
+            by using small data it cant find rsi crossed 40 and failed values from it if they not exist
+            
+            """
             #data_ingestion_artifact = DataIngestionArtifact(trained_file_path=self.data_ingestion_config.training_file_path)
             #test_file_path=self.data_ingestion_config.testing_file_path)
             data_ingestion_artifact=DataIngestionArtifact(trained_file_path='artifact/1RELIANCE.csv')
